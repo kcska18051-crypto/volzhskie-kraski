@@ -1,0 +1,188 @@
+{
+  "viewports": [
+    {
+      "width": 1920,
+      "scrollWidth": 1920,
+      "brokenImages": []
+    },
+    {
+      "width": 1440,
+      "scrollWidth": 1440,
+      "brokenImages": []
+    },
+    {
+      "width": 1366,
+      "scrollWidth": 1366,
+      "brokenImages": []
+    },
+    {
+      "width": 1280,
+      "scrollWidth": 1280,
+      "brokenImages": []
+    },
+    {
+      "width": 1024,
+      "scrollWidth": 1024,
+      "brokenImages": []
+    },
+    {
+      "width": 768,
+      "scrollWidth": 768,
+      "brokenImages": []
+    },
+    {
+      "width": 390,
+      "scrollWidth": 390,
+      "brokenImages": []
+    },
+    {
+      "width": 375,
+      "scrollWidth": 375,
+      "brokenImages": []
+    }
+  ],
+  "interactions": [
+    {
+      "name": "mobile menu opens",
+      "passed": true
+    },
+    {
+      "name": "Escape closes menu",
+      "passed": true
+    },
+    {
+      "name": "anchor closes menu",
+      "passed": true
+    },
+    {
+      "name": "tolling navigation active",
+      "passed": true
+    },
+    {
+      "name": "industry keyboard selects railway repair",
+      "passed": true
+    },
+    {
+      "name": "railway certification caveat",
+      "passed": true
+    },
+    {
+      "name": "application 0 uses a readable image",
+      "passed": true
+    },
+    {
+      "name": "application 1 uses a readable image",
+      "passed": true
+    },
+    {
+      "name": "application 2 uses a readable image",
+      "passed": true
+    },
+    {
+      "name": "application 3 uses a readable image",
+      "passed": true
+    },
+    {
+      "name": "application 4 uses a readable image",
+      "passed": true
+    },
+    {
+      "name": "application 5 uses a readable image",
+      "passed": true
+    },
+    {
+      "name": "all six application images are distinct",
+      "passed": true
+    },
+    {
+      "name": "application CTA carries request context",
+      "passed": true
+    },
+    {
+      "name": "request context can be removed",
+      "passed": true
+    },
+    {
+      "name": "custom order keyboard selects batch",
+      "passed": true
+    },
+    {
+      "name": "custom batch explains stable colour",
+      "passed": true
+    },
+    {
+      "name": "custom order changes tangible visual",
+      "passed": true
+    },
+    {
+      "name": "process keyboard changes step",
+      "passed": true
+    },
+    {
+      "name": "process illustration follows selected step",
+      "passed": true
+    },
+    {
+      "name": "process arrow changes step",
+      "passed": true
+    },
+    {
+      "name": "last step cannot advance",
+      "passed": true
+    },
+    {
+      "name": "FAQ disclosure opens",
+      "passed": true
+    },
+    {
+      "name": "service CTA selects tolling request",
+      "passed": true
+    },
+    {
+      "name": "empty form shows errors",
+      "passed": true
+    },
+    {
+      "name": "file label updates",
+      "passed": true
+    },
+    {
+      "name": "file remove works",
+      "passed": true
+    },
+    {
+      "name": "unconnected form does not imitate sending",
+      "passed": true
+    },
+    {
+      "name": "legal dialog opens",
+      "passed": true
+    },
+    {
+      "name": "legal dialog closes with Escape",
+      "passed": true
+    },
+    {
+      "name": "failed backend keeps user data",
+      "passed": true
+    },
+    {
+      "name": "confirmed backend response shows success",
+      "passed": true
+    },
+    {
+      "name": "reduced motion disables hero animation",
+      "passed": true
+    },
+    {
+      "name": "mobile automated accessibility",
+      "passed": true
+    },
+    {
+      "name": "desktop automated accessibility",
+      "passed": true
+    }
+  ],
+  "mobileAccessibility": [],
+  "desktopAccessibility": []
+}

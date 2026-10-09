@@ -1,0 +1,37 @@
+/** Replace sources here; never represent demonstration visuals as factory evidence. */
+export const media = {
+  'hero-poster': {
+    desktop: '/assets/hero-poster.webp', mobile: '/assets/hero-mobile.webp',
+    alt: 'Демонстрационная визуальная концепция: смешивание красной краски в металлической ёмкости',
+    position: '70% 50%', mobilePosition: '50% 50%', demonstration: true,
+    video: { desktop: null, mobile: null },
+  },
+  'lkm-production': { desktop: null, mobile: null, alt: 'Производство лакокрасочных материалов', video: { desktop: null, mobile: null } },
+  'material-alkyd': { desktop: '/assets/material-alkyd.webp', mobile: '/assets/material-alkyd-mobile.webp', alt: 'Демонстрационный макрообраз: красное покрытие на металлическом образце', demonstration: true },
+  'material-acrylic': { desktop: '/assets/material-acrylic.webp', mobile: '/assets/material-acrylic-mobile.webp', alt: 'Демонстрационный макрообраз: тёмно-синее покрытие на металлическом образце', demonstration: true },
+  'custom-etalon': { desktop: '/assets/material-alkyd.webp', mobile: '/assets/material-alkyd-mobile.webp', alt: 'Демонстрационный образ цветового эталона на металле', demonstration: true },
+  'application-gates': { desktop: '/assets/application-gates.webp', mobile: '/assets/application-gates-mobile.webp', alt: 'Демонстрационный образ применения покрытия: металлические ворота', demonstration: true },
+  'application-racks': { desktop: '/assets/application-racks.webp', mobile: '/assets/application-racks-mobile.webp', alt: 'Демонстрационный образ применения покрытия: складские стеллажи', demonstration: true },
+  'application-forklift': { desktop: '/assets/application-forklift.webp', mobile: '/assets/application-forklift-mobile.webp', alt: 'Демонстрационный образ применения покрытия: погрузчик', demonstration: true },
+  'application-machinery': { desktop: '/assets/application-machinery.webp', mobile: '/assets/application-machinery-mobile.webp', alt: 'Демонстрационный образ применения покрытия: промышленный станок', demonstration: true },
+  'application-transport': { desktop: '/assets/application-transport.webp', mobile: '/assets/application-transport-mobile.webp', alt: 'Демонстрационный образ применения покрытия: коммерческий транспорт', demonstration: true },
+  'application-railway': { desktop: '/assets/application-railway.webp', mobile: '/assets/application-railway-mobile.webp', alt: 'Демонстрационный образ применения покрытия: железнодорожный вагон в контексте ремонта', demonstration: true },
+  'tolling-production': { desktop: null, mobile: null, alt: 'Технологическая операция с сырьём заказчика', video: { desktop: null, mobile: null } },
+  laboratory: { desktop: null, mobile: null, alt: 'Научно-исследовательская лаборатория предприятия' },
+  'quality-control': { desktop: null, mobile: null, alt: 'Контроль качественных показателей партии в лаборатории ОТК' },
+  'control-samples': { desktop: null, mobile: null, alt: 'Работа с цветовыми эталонами и контроль образцов партии' },
+  equipment: { desktop: null, mobile: null, alt: 'Собственные производственные мощности предприятия' },
+  team: { desktop: null, mobile: null, alt: 'Специалисты предприятия' },
+};
+
+/** No fictional API or legal document. Configure only approved real destinations. */
+// Add/remove entries freely. Publish only approved original logos with a real name.
+export const partners = Array.from({ length: 8 }, () => ({ name: '', src: null, approved: false }));
+
+export const integration = {
+  requestEndpoint: null,
+  csrfToken: null,
+  privacyUrl: null,
+  consentUrl: null,
+  maxFileBytes: 10 * 1024 * 1024,
+};
