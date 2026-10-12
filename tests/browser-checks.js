@@ -39,9 +39,12 @@ export async function runBrowserChecks(page, axeSource) {
   }
   check('all six application images are distinct',new Set(applicationSources).size===6);
   await page.locator('#industry-cta').click();
+  check('context CTA opens the shared modal',await page.locator('#quote-dialog').isVisible()&&await page.locator('#request-form').count()===1);
   check('application CTA carries request context',await page.locator('#request-context').inputValue()==='Ремонт железнодорожного транспорта');
   await page.locator('#context-remove').click();
   check('request context can be removed',await page.locator('#request-context').inputValue()===''&&!(await page.locator('#inquiry-context').isVisible()));
+  await page.locator('.quote-close').click();
+  check('modal restores the form to the page',await page.locator('.request-layout>#request-form').count()===1);
   await page.locator('[data-custom="0"]').focus();
   await page.keyboard.press('End');
   check('custom order keyboard selects batch',await page.locator('#custom-panel').getAttribute('data-stage')==='3');
@@ -72,7 +75,7 @@ export async function runBrowserChecks(page, axeSource) {
   check('file remove works',await page.locator('#file-label').textContent()==='Прикрепить ТЗ или документ');
   await page.locator('.form-submit').click();
   check('unconnected form does not imitate sending',await page.locator('#form-status').getAttribute('data-state')==='unconnected'&&(await page.locator('#form-status').textContent()).includes('запрос не отправлен'));
-  await page.locator('[data-legal="privacy"]').first().click();
+  await page.locator('#request-form [data-legal="privacy"]').click();
   check('legal dialog opens',await page.locator('#legal-dialog').isVisible());
   await page.keyboard.press('Escape');
   check('legal dialog closes with Escape',!(await page.locator('#legal-dialog').isVisible()));

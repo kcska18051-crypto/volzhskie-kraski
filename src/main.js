@@ -1,3 +1,4 @@
+import { mountQuoteDialog } from './quote.js';
 import { media, integration, partners } from './media-config.js';
 import { mountPartners } from './partners.js';
 import { industries, steps, customStages } from './content.js';
@@ -274,3 +275,5 @@ document.querySelectorAll('[data-service]').forEach((link)=>link.addEventListene
   if(input){input.checked=true;input.dispatchEvent(new Event('change',{bubbles:true}));}
   setContext(link.dataset.context||'');
 }));
+
+mountQuoteDialog(link=>{if(link.dataset.quote==='kp')setContext('');document.querySelector('#navigation').classList.remove('is-open');const toggle=document.querySelector('.menu-toggle');toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Открыть меню');});
