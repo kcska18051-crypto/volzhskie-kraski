@@ -11,6 +11,7 @@ export function mountPartners(slots, section = document.querySelector('#partners
     image.decoding = 'async';
     item.hidden = true;
     image.addEventListener('load', () => {
+      if (!grid.contains(item)) return;
       item.hidden = false;
       section.hidden = false;
     }, { once: true });
