@@ -213,6 +213,7 @@ function initializeCustomOrder() {
     document.querySelector('#custom-description').textContent=stage.description;
     document.querySelector('#custom-keypoint').textContent=stage.point;
     document.querySelector('#custom-visual-label').textContent=stage.visual;
+    document.querySelector('.custom-visual-caption small').textContent=index===3?'Цифровая схема сравнения цвета — не данные реальных партий':'Демонстрационный образ покрытия';
     animatePanel(document.querySelector('.custom-stage-content'));
   };
   buttons.forEach((button,index)=>button.addEventListener('click',()=>select(index)));
@@ -265,8 +266,8 @@ mountPartners(partners);
 mountMedia();initializeNavigation();initializeIndustries();initializeCustomOrder();initializeSteps();initializeForm();initializeLegal();initializeReveals();initializeHeroDepth();
 const contextInput=document.querySelector('#request-context');
 const contextMessage=document.querySelector('#inquiry-context');
-const setContext=(value)=>{contextInput.value=value;document.querySelector('#inquiry-context-label').textContent=value;contextMessage.hidden=!value;};
-document.querySelector('#context-remove').addEventListener('click',()=>setContext(''));
+const setContext=(value)=>{contextInput.value=value;contextMessage.hidden=!value;};
+document.querySelector('#context-remove').addEventListener('click',()=>{setContext('');document.querySelector('#request-form input[name=service]:checked').focus();});
 document.querySelectorAll('#request-form input[name="service"]').forEach(input=>input.addEventListener('change',()=>setContext('')));
 document.querySelectorAll('[data-service]').forEach((link)=>link.addEventListener('click',()=>{
   const input=document.querySelector(`#request-form input[name="service"][value="${link.dataset.service}"]`);
