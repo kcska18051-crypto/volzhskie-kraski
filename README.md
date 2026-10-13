@@ -1,3 +1,7 @@
+# Географический баннер V8
+
+[Отчёт и сравнение](docs/V8_GEOGRAPHY.md) · [Просмотр географии](https://kcska18051-crypto.github.io/volzhskie-kraski/?preview=partners#geography)
+
 # Актуальная версия V4
 
 [Отчёт и проверки](docs/V4_REPORT.md) · [Контекст продолжения](docs/HANDOFF.md) · [Просмотр](https://kcska18051-crypto.github.io/volzhskie-kraski/)

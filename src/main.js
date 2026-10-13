@@ -146,7 +146,7 @@ function initializeReveals(){
   if(reducedMotion.matches||!('IntersectionObserver' in window))return;
   const targets=[...document.querySelectorAll('.reveal,.geo-map')];
   let observer;
-  const showAll=()=>{observer?.disconnect();targets.forEach(el=>el.classList.remove('reveal-pending','geo-pending'));};
+  const showAll=()=>{observer?.disconnect();targets.forEach(el=>{el.classList.remove('reveal-pending','geo-pending');if(el.classList.contains('geo-map'))el.closest('.geography')?.classList.remove('geo-motion');});};
   try{
     observer=new IntersectionObserver(entries=>{
       for(const entry of entries){
