@@ -1,4 +1,5 @@
 import './sync-surface-fallback.mjs';
+import './build-map.mjs';
 import { mkdir, cp, stat, readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';

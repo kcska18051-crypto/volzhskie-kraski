@@ -1,6 +1,7 @@
 import { initializeCompanyGallery } from './company.js?v=14';
 import { initializeSurfaceBanner } from './surfaces.js?v=14';
 import { initializeTolling } from './tolling.js?v=14';
+import { initializeGeography } from './geography.js?v=18';
 import { initializeMaterials } from './materials.js';
 import { initializePartnerMarquee } from './partner-marquee.js';
 import { mountQuoteDialog } from './quote.js';
@@ -173,7 +174,7 @@ function initializeReveals(){
 
 initializePartnerMarquee();
 mountPartners(partners,document.querySelector('#partners'),{preview:new URLSearchParams(location.search).get('preview')==='partners'});
-initializeCompanyGallery();initializeSurfaceBanner();initializeTolling();initializeMaterials();mountMedia();initializeNavigation();initializeForm();initializeLegal();initializeReveals();initializeHeroDepth();
+initializeCompanyGallery();initializeSurfaceBanner();initializeTolling();initializeGeography();initializeMaterials();mountMedia();initializeNavigation();initializeForm();initializeLegal();initializeReveals();initializeHeroDepth();
 const contextInput=document.querySelector('#request-context');
 const contextMessage=document.querySelector('#inquiry-context');
 const setContext=(value)=>{contextInput.value=value;contextMessage.hidden=!value;};

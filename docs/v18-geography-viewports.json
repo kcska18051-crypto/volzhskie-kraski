@@ -1,0 +1,170 @@
+[
+  {
+    "copyMapGap": 14,
+    "labels": [
+      {
+        "inside": true,
+        "text": "Производство в Ярославле"
+      },
+      {
+        "inside": true,
+        "text": "Россия"
+      },
+      {
+        "inside": true,
+        "text": "Беларусь"
+      },
+      {
+        "inside": true,
+        "text": "Казахстан"
+      }
+    ],
+    "landBottomMargin": 16.8359375,
+    "landTopMargin": 12.6826171875,
+    "mapHeight": 227.0625,
+    "mapWidth": 360,
+    "overflow": false,
+    "sectionHeight": 711,
+    "width": 360
+  },
+  {
+    "copyMapGap": 14,
+    "labels": [
+      {
+        "inside": true,
+        "text": "Производство в Ярославле"
+      },
+      {
+        "inside": true,
+        "text": "Россия"
+      },
+      {
+        "inside": true,
+        "text": "Беларусь"
+      },
+      {
+        "inside": true,
+        "text": "Казахстан"
+      }
+    ],
+    "landBottomMargin": 18.240234375,
+    "landTopMargin": 13.740234375,
+    "mapHeight": 246,
+    "mapWidth": 390,
+    "overflow": false,
+    "sectionHeight": 693.140625,
+    "width": 390
+  },
+  {
+    "copyMapGap": 14,
+    "labels": [
+      {
+        "inside": true,
+        "text": "Производство в Ярославле"
+      },
+      {
+        "inside": true,
+        "text": "Россия"
+      },
+      {
+        "inside": true,
+        "text": "Беларусь"
+      },
+      {
+        "inside": true,
+        "text": "Казахстан"
+      }
+    ],
+    "landBottomMargin": 20.078125,
+    "landTopMargin": 8.60498046875,
+    "mapHeight": 282.203125,
+    "mapWidth": 768,
+    "overflow": false,
+    "sectionHeight": 603,
+    "width": 768
+  },
+  {
+    "copyMapGap": 10,
+    "labels": [
+      {
+        "inside": true,
+        "text": "Производство в Ярославле"
+      },
+      {
+        "inside": true,
+        "text": "Россия"
+      },
+      {
+        "inside": true,
+        "text": "Беларусь"
+      },
+      {
+        "inside": true,
+        "text": "Казахстан"
+      }
+    ],
+    "landBottomMargin": 29.99853515625,
+    "landTopMargin": 12.8564453125,
+    "mapHeight": 421.640625,
+    "mapWidth": 1147.4375,
+    "overflow": false,
+    "sectionHeight": 765.8125,
+    "width": 1366
+  },
+  {
+    "copyMapGap": 10,
+    "labels": [
+      {
+        "inside": true,
+        "text": "Производство в Ярославле"
+      },
+      {
+        "inside": true,
+        "text": "Россия"
+      },
+      {
+        "inside": true,
+        "text": "Беларусь"
+      },
+      {
+        "inside": true,
+        "text": "Казахстан"
+      }
+    ],
+    "landBottomMargin": 31.6240234375,
+    "landTopMargin": 13.55322265625,
+    "mapHeight": 444.484375,
+    "mapWidth": 1209.59375,
+    "overflow": false,
+    "sectionHeight": 792.15625,
+    "width": 1440
+  },
+  {
+    "copyMapGap": 10,
+    "labels": [
+      {
+        "inside": true,
+        "text": "Производство в Ярославле"
+      },
+      {
+        "inside": true,
+        "text": "Россия"
+      },
+      {
+        "inside": true,
+        "text": "Беларусь"
+      },
+      {
+        "inside": true,
+        "text": "Казахстан"
+      }
+    ],
+    "landBottomMargin": 38.693359375,
+    "landTopMargin": 16.5830078125,
+    "mapHeight": 543.84375,
+    "mapWidth": 1480,
+    "overflow": false,
+    "sectionHeight": 891.515625,
+    "width": 1920
+  }
+]
