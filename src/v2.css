@@ -305,3 +305,5 @@
 @media(max-width:700px){.materials-v4{row-gap:40px}}
 
 .materials-v4{align-items:stretch}.material-editorial{grid-row:auto;grid-template-rows:auto auto auto 1fr auto}.material-summary{align-self:start}
+
+.section .materials-choice-note{color:var(--navy);font-size:22px;line-height:1.5;border:0;padding-top:0;margin-top:36px;max-width:1000px}.materials-choice-note strong{font-weight:600}@media(max-width:700px){.section .materials-choice-note{font-size:18px;margin-top:30px}}
