@@ -1,0 +1,22 @@
+[
+  {
+    "id": "steel-panel",
+    "prompt": "Generate one high-end industrial CGI illustration, landscape 1536x1024, one single object as a product material study. Deep calm blue studio backdrop #203B63 merging into darker #142944 floor, clean bright red #ED1B24 painted areas. Consistent soft broad upper-left key light, controlled highlights, three-quarter close-up, object fills central 75% with safe margins for mobile crop. No text, labels, logos, people, tools, machinery, liquid splash, or fictional factory. This is an illustrative substrate/detail study, not a client product photograph. Keep the image elegantly minimal, tangible and precise. A broad smooth red-coated steel panel with a subtle folded return edge. The thin cut edge visibly reveals silver steel. Large continuous silky paint surface and precise clean steel fold, no generic floating rectangle."
+  },
+  {
+    "id": "steel-detail",
+    "prompt": "Generate one high-end industrial CGI illustration, landscape 1536x1024, one single object as a product material study. Deep calm blue studio backdrop #203B63 merging into darker #142944 floor, clean bright red #ED1B24 painted areas. Consistent soft broad upper-left key light, controlled highlights, three-quarter close-up, object fills central 75% with safe margins for mobile crop. No text, labels, logos, people, tools, machinery, liquid splash, or fictional factory. This is an illustrative substrate/detail study, not a client product photograph. Keep the image elegantly minimal, tangible and precise. A substantial curved stamped steel bracket / housing corner, with one circular mounting hole and folded flanges. Smooth red paint exterior, subtle exposed silver metal on a cut edge. Clearly a steel sheet fabrication detail, no recognizable device or vehicle."
+  },
+  {
+    "id": "aluminium",
+    "prompt": "Generate one high-end industrial CGI illustration, landscape 1536x1024, one single object as a product material study. Deep calm blue studio backdrop #203B63 merging into darker #142944 floor, clean bright red #ED1B24 painted areas. Consistent soft broad upper-left key light, controlled highlights, three-quarter close-up, object fills central 75% with safe margins for mobile crop. No text, labels, logos, people, tools, machinery, liquid splash, or fictional factory. This is an illustrative substrate/detail study, not a client product photograph. Keep the image elegantly minimal, tangible and precise. One compact machined aluminium extruded profile corner with exposed satin silver aluminium ribs, and a broad smooth red-coated face. Distinct L-shaped cross-section with parallel extrusion channels. No machinery."
+  },
+  {
+    "id": "plastic",
+    "prompt": "Generate one high-end industrial CGI illustration, landscape 1536x1024, one single object as a product material study. Deep calm blue studio backdrop #203B63 merging into darker #142944 floor, clean bright red #ED1B24 painted areas. Consistent soft broad upper-left key light, controlled highlights, three-quarter close-up, object fills central 75% with safe margins for mobile crop. No text, labels, logos, people, tools, machinery, liquid splash, or fictional factory. This is an illustrative substrate/detail study, not a client product photograph. Keep the image elegantly minimal, tangible and precise. One red injection-moulded plastic enclosure corner, smoothly rounded thick walls, subtle internal ribs and snap-fit tab visible at the uncoated dark inner edge. Clearly a moulded plastic part rather than metal sheet, no metallic sharp edges."
+  },
+  {
+    "id": "galvanized",
+    "prompt": "Generate one high-end industrial CGI illustration, landscape 1536x1024, one single object as a product material study. Deep calm blue studio backdrop #203B63 merging into darker #142944 floor, clean bright red #ED1B24 painted areas. Consistent soft broad upper-left key light, controlled highlights, three-quarter close-up, object fills central 75% with safe margins for mobile crop. No text, labels, logos, people, tools, machinery, liquid splash, or fictional factory. This is an illustrative substrate/detail study, not a client product photograph. Keep the image elegantly minimal, tangible and precise. One folded galvanized steel angle element with a characteristic soft zinc spangle pattern visible on an unpainted silver face, with a clean red-coated adjacent face. Macro material study of metal surface and fold, no rust or machinery."
+  }
+]

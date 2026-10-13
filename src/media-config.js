@@ -35,3 +35,6 @@ export const integration = {
   consentUrl: null,
   maxFileBytes: 10 * 1024 * 1024,
 };
+
+// Editable substrate banner frames; unconfirmed entries stay disabled.
+export { surfaceFrames } from './surface-config.js';
