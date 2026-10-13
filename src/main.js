@@ -1,3 +1,4 @@
+import { initializeMaterials } from './materials.js';
 import { initializePartnerMarquee } from './partner-marquee.js';
 import { mountQuoteDialog } from './quote.js';
 import { media, integration, partners } from './media-config.js';
@@ -169,7 +170,7 @@ function initializeReveals(){
 
 initializePartnerMarquee();
 mountPartners(partners,document.querySelector('#partners'),{preview:new URLSearchParams(location.search).get('preview')==='partners'});
-mountMedia();initializeNavigation();initializeForm();initializeLegal();initializeReveals();initializeHeroDepth();
+initializeMaterials();mountMedia();initializeNavigation();initializeForm();initializeLegal();initializeReveals();initializeHeroDepth();
 const contextInput=document.querySelector('#request-context');
 const contextMessage=document.querySelector('#inquiry-context');
 const setContext=(value)=>{contextInput.value=value;contextMessage.hidden=!value;};

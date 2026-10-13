@@ -2,7 +2,7 @@
 export function createQuoteController({form,host,dialog,prepare=()=>{}}){
   const home=form.parentElement;let opener;
   return {
-    open(link){if(dialog.open)return false;opener=link;prepare(link);host.append(form);try{dialog.showModal();}catch{home.append(form);return false;}form.querySelector('input[name="name"]').focus({preventScroll:true});return true;},
+    open(link,returnFocus=link){if(dialog.open)return false;opener=returnFocus;prepare(link);host.append(form);try{dialog.showModal();}catch{home.append(form);return false;}form.querySelector('input[name="name"]').focus({preventScroll:true});return true;},
     restore(){home.append(form);opener?.focus({preventScroll:true});},
   };
 }
@@ -12,7 +12,7 @@ export function mountQuoteDialog(prepare){
   const controller=createQuoteController({form,host:document.querySelector('#quote-form-host'),dialog,prepare});
   document.querySelectorAll('a[href="#request"]').forEach(link=>link.addEventListener('click',event=>{
     document.querySelector('#quote-title').textContent=link.dataset.context?.includes('TDS')?'Запросить техническое описание':link.dataset.quote==='kp'?'Запросить КП':'Обсудить задачу';
-    if(controller.open(link)){event.preventDefault();document.body.classList.add('quote-open');}
+    if(controller.open(link,link.dataset.returnFocus?document.getElementById(link.dataset.returnFocus)||link:link)){event.preventDefault();document.body.classList.add('quote-open');}
   }));
   form.querySelectorAll('input[name=service]').forEach(input=>input.addEventListener('change',()=>{if(dialog.open)document.querySelector('#quote-title').textContent='Запросить КП';}));
   dialog.querySelector('.quote-close').addEventListener('click',()=>dialog.close());

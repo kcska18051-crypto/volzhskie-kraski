@@ -6,3 +6,8 @@ test('one inquiry form returns home with its values and opener focus intact',()=
 test('a second open cannot replace the original return-focus target',()=>{
   let first=0,second=0;const home={append(){}},host={append(){}};const form={parentElement:home,querySelector:()=>({focus(){}})};const dialog={open:false,showModal(){this.open=true;}};const control=createQuoteController({form,host,dialog});control.open({focus(){first++;}});control.open({focus(){second++;}});control.restore();assert.equal(first,1);assert.equal(second,0);
 });
+
+test('material handoff returns focus to the visible details button',()=>{
+ let hiddenLinkFocus=0,visibleButtonFocus=0;const home={append(){}},host={append(){}};const form={parentElement:home,querySelector:()=>({focus(){}})};const dialog={open:false,showModal(){this.open=true;}};
+ const control=createQuoteController({form,host,dialog});control.open({focus(){hiddenLinkFocus++;}},{focus(){visibleButtonFocus++;}});control.restore();assert.equal(hiddenLinkFocus,0);assert.equal(visibleButtonFocus,1);
+});
