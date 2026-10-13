@@ -279,3 +279,7 @@
 /* Shared text rows also align titles that wrap to three lines on narrow phones. */
 @media(max-width:380px){.proof-band .proof-grid>div:nth-child(n+3) strong{min-height:3.75em}}
 @supports(grid-template-rows:subgrid){.proof-band .proof-grid{row-gap:12px}.proof-band .proof-grid>div{grid-row:span 2;grid-template-rows:subgrid;row-gap:12px}.proof-band .proof-grid strong{min-height:0}@media(max-width:1050px){.proof-band .proof-grid>div:nth-child(n+3){padding-top:18px}}}
+
+/* V7: darker hero gradient, lighter blue proof band; content is unchanged. */
+.hero{background:var(--navy-deep)}.hero-shade{background:linear-gradient(90deg,#142944 0%,#142944f5 22%,#142944ce 40%,#14294450 64%,#14294410 100%),linear-gradient(0deg,#142944 0%,transparent 44%)}.proof-band{background:var(--navy)}
+@media(max-width:700px){.hero-shade{background:linear-gradient(90deg,#142944de,#14294490),linear-gradient(0deg,#142944 15%,transparent 75%)}}
