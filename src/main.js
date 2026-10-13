@@ -1,8 +1,7 @@
+import { initializePartnerMarquee } from './partner-marquee.js';
 import { mountQuoteDialog } from './quote.js';
 import { media, integration, partners } from './media-config.js';
 import { mountPartners } from './partners.js';
-import { industries, steps, customStages } from './content.js';
-import { processScenes } from './process-scenes.js';
 import { initializeForm } from './form.js';
 
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
@@ -39,7 +38,7 @@ function mountMedia() {
       if(slot.demonstration===false)stageVisual.querySelector('.custom-visual-caption small').hidden=true;
     }
     mobileMedia.addEventListener('change',()=>{ img.style.objectPosition=mobileMedia.matches?slot.mobilePosition||slot.position||'center':slot.position||'center'; });
-    if (isHero && slot.demonstration === false) document.querySelector('.hero-caption').textContent = 'Производство «Волжские краски»';
+
 
     if (!slot.video?.desktop) return;
     const video = document.createElement('video');
@@ -108,119 +107,6 @@ function initializeNavigation() {
   onScroll();
 }
 
-function animatePanel(panel) {
-  if (reducedMotion.matches) return;
-  panel.classList.remove('panel-changing');
-  requestAnimationFrame(() => panel.classList.add('panel-changing'));
-}
-
-function tabKeyboard(buttons, select, orientation = 'horizontal') {
-  buttons.forEach((button,index) => button.addEventListener('keydown',(event) => {
-    let next = index;
-    if (event.key==='Home') next=0;
-    else if (event.key==='End') next=buttons.length-1;
-    else if (event.key===(orientation==='vertical'?'ArrowDown':'ArrowRight')) next=(index+1)%buttons.length;
-    else if (event.key===(orientation==='vertical'?'ArrowUp':'ArrowLeft')) next=(index-1+buttons.length)%buttons.length;
-    else return;
-    event.preventDefault();select(next);buttons[next].focus({preventScroll:true});
-  }));
-}
-
-function updateTabs(buttons,index,panel) {
-  buttons.forEach((button,i) => { button.setAttribute('aria-selected',String(i===index)); button.tabIndex=i===index?0:-1; });
-  panel.setAttribute('aria-labelledby',buttons[index].id);
-}
-
-function initializeIndustries() {
-  const buttons = [...document.querySelectorAll('[data-industry]')];
-  const panel = document.querySelector('#industry-panel');
-  const visual = document.querySelector('#industry-visual');
-  const image = document.querySelector('#industry-image');
-  const source = document.querySelector('#industry-mobile-source');
-  const fallback = document.createElement('span');
-  fallback.className = 'industry-fallback';
-  fallback.textContent = 'Зона для тематической фотографии';
-  visual.append(fallback);
-  let generation = 0;
-  let selected = 0;
-  const select = (index) => {
-    selected = index;
-    const currentGeneration = ++generation;
-    const item = industries[index];
-    updateTabs(buttons,index,panel);
-    document.querySelector('#industry-title').textContent = item.title;
-    document.querySelector('#industry-description').textContent = item.description;
-    document.querySelector('#industry-hint').textContent = item.hint;
-    document.querySelector('#industry-tag').textContent = item.tag;
-    document.querySelector('#industry-counter').textContent = `${String(index+1).padStart(2,'0')} / 06`;
-    document.querySelector('#industry-name').textContent = item.name;
-    document.querySelector('#industry-cta-label').textContent = item.action;
-    document.querySelector('#industry-cta').dataset.context = item.name;
-    const slot = media[item.media];
-    visual.classList.remove('is-loaded','is-unavailable');
-    visual.classList.add('is-loading');
-    document.querySelector('#industry-demo-caption').textContent = slot?.demonstration === false ? 'Направление применения' : 'Демонстрационный образ · не фото продукции предприятия';
-    if (!slot?.desktop) { image.hidden=true;visual.classList.remove('is-loading');visual.classList.add('is-unavailable');return; }
-    image.hidden=false;
-    source.srcset=slot.mobile||slot.desktop;
-    image.alt=slot.alt||item.name;
-    image.style.objectPosition=mobileMedia.matches?slot.mobilePosition||slot.position||'center':slot.position||'center';
-    image.src=slot.desktop;
-    image.decode().then(()=>{if(generation===currentGeneration){visual.classList.remove('is-loading');visual.classList.add('is-loaded');}}).catch(()=>{if(generation===currentGeneration){image.hidden=true;visual.classList.remove('is-loading');visual.classList.add('is-unavailable');}});
-    animatePanel(document.querySelector('.industry-detail'));
-  };
-  buttons.forEach((button,index)=>button.addEventListener('click',()=>select(index)));
-  tabKeyboard(buttons,select,'vertical');select(0);
-  mobileMedia.addEventListener('change',()=>{const slot=media[industries[selected].media];image.style.objectPosition=mobileMedia.matches?slot?.mobilePosition||slot?.position||'center':slot?.position||'center';});
-}
-
-function initializeSteps() {
-  const buttons = [...document.querySelectorAll('[data-step]')];
-  const panel = document.querySelector('#step-panel');
-  const previous = document.querySelector('.step-prev');
-  const next = document.querySelector('.step-next');
-  let selected = 0;
-  const select = (index) => {
-    selected = index;
-    const step = steps[index];
-    updateTabs(buttons,index,panel);
-    for (const field of ['kicker','title','description','output']) document.querySelector(`#step-${field}`).textContent=step[field];
-    document.querySelector('#step-count').textContent = `${index+1} из 5`;
-    const scene=processScenes[index];
-    document.querySelector('#step-art').innerHTML=scene.art;
-    document.querySelector('#step-scene-label').textContent=scene.label;
-    const flow=document.querySelector('#step-scene-flow');
-    flow.replaceChildren(...scene.flow.map((label,i)=>{const span=document.createElement('span');span.textContent=label;if(i%2)span.setAttribute('aria-hidden','true');return span;}));
-    panel.dataset.activeStep=String(index);
-    previous.disabled=index===0;next.disabled=index===steps.length-1;
-    animatePanel(panel);
-  };
-  buttons.forEach((button,index)=>button.addEventListener('click',()=>select(index)));
-  previous.addEventListener('click',()=>select(Math.max(0,selected-1)));
-  next.addEventListener('click',()=>select(Math.min(steps.length-1,selected+1)));
-  tabKeyboard(buttons,select);select(0);
-}
-
-function initializeCustomOrder() {
-  const buttons=[...document.querySelectorAll('[data-custom]')];
-  const panel=document.querySelector('#custom-panel');
-  const select=(index)=>{
-    const stage=customStages[index];
-    updateTabs(buttons,index,panel);
-    panel.dataset.stage=String(index);
-    document.querySelector('#custom-stage-visual').dataset.stage=String(index);
-    document.querySelector('#custom-kicker').textContent=stage.kicker;
-    document.querySelector('#custom-title').textContent=stage.title;
-    document.querySelector('#custom-description').textContent=stage.description;
-    document.querySelector('#custom-keypoint').textContent=stage.point;
-    document.querySelector('#custom-visual-label').textContent=stage.visual;
-    document.querySelector('.custom-visual-caption small').textContent=index===3?'Цифровая схема сравнения цвета — не данные реальных партий':'Демонстрационный образ покрытия';
-    animatePanel(document.querySelector('.custom-stage-content'));
-  };
-  buttons.forEach((button,index)=>button.addEventListener('click',()=>select(index)));
-  tabKeyboard(buttons,select);select(0);
-}
-
 function initializeHeroDepth() {
   const hero=document.querySelector('.hero');
   const finePointer=matchMedia('(hover:hover) and (pointer:fine)');
@@ -256,15 +142,14 @@ function initializeLegal() {
   dialog.addEventListener('click',(event)=>{if(event.target===dialog){const rect=dialog.getBoundingClientRect();if(event.clientX<rect.left||event.clientX>rect.right||event.clientY<rect.top||event.clientY>rect.bottom)dialog.close();}});
 }
 
-function initializeReveals() {
-  if (reducedMotion.matches || !('IntersectionObserver' in window)) return;
-  document.documentElement.classList.add('js-motion');
-  const observer = new IntersectionObserver((entries) => { for (const entry of entries) if (entry.isIntersecting) { entry.target.classList.add('is-visible');observer.unobserve(entry.target); } },{rootMargin:'0px 0px -30px 0px',threshold:.08});
-  document.querySelectorAll('.reveal').forEach((element)=>observer.observe(element));
+function initializeReveals(){
+  if(reducedMotion.matches||!('IntersectionObserver' in window))return;
+  try{const observer=new IntersectionObserver(entries=>{for(const entry of entries)if(entry.isIntersecting){entry.target.classList.add('is-visible');if(entry.target.classList.contains('geography'))entry.target.classList.add('geo-motion');observer.unobserve(entry.target);}},{threshold:.08,rootMargin:'0px 0px -5% 0px'});document.querySelectorAll('.reveal,.geography').forEach(el=>observer.observe(el));}catch{/* Content is visible without an observer. */}
 }
 
-mountPartners(partners);
-mountMedia();initializeNavigation();initializeIndustries();initializeCustomOrder();initializeSteps();initializeForm();initializeLegal();initializeReveals();initializeHeroDepth();
+initializePartnerMarquee();
+mountPartners(partners,document.querySelector('#partners'),{preview:new URLSearchParams(location.search).get('preview')==='partners'});
+mountMedia();initializeNavigation();initializeForm();initializeLegal();initializeReveals();initializeHeroDepth();
 const contextInput=document.querySelector('#request-context');
 const contextMessage=document.querySelector('#inquiry-context');
 const setContext=(value)=>{contextInput.value=value;contextMessage.hidden=!value;};

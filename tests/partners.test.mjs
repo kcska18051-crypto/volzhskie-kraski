@@ -27,3 +27,10 @@ test('changing the list discards late loads from previous partner slots',()=>{
   mountPartners([],section);oldImage.dispatchEvent(new Event('load'));
   assert.equal(grid.children.length,0);assert.equal(section.hidden,true);
 });
+
+test('approval preview uses anonymous slots and is opt-in',()=>{
+ const {grid,section}=fixture();const note=new Element();section.querySelector=selector=>selector==='.partners-grid'?grid:note;
+ globalThis.document.createElement=()=>{const e=new Element();e.setAttribute=()=>{};return e;};
+ mountPartners(Array(8).fill({approved:false}),section,{preview:true});assert.equal(section.hidden,false);assert.equal(grid.children.length,8);assert.ok(grid.children.every(item=>item.className==='partner-placeholder'&&item.children.length===0));assert.equal(note.hidden,false);
+ mountPartners([],section);assert.equal(section.hidden,true);assert.equal(grid.children.length,0);assert.equal(note.hidden,true);
+});
