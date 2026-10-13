@@ -22,9 +22,13 @@
 
 ## Баннер поверхности
 
-public/assets/surface-*.webp: два публичных стальных изображения и три выключенных слота. Источники — src/surface-config.js; утверждение технических оснований и включение — отдельное решение. ?surfaces=review показывает предварительные кадры с оговорками. Для нового кадра задать desktop/mobile, короткое название и alt, approved/enabled; после изменения выполнить сборку для синхронизации первого кадра без JS. См. docs/V11_SURFACES.md и промпты docs/SURFACE_IMAGE_PROMPTS.json.
+public/assets/surface-*.webp: все пять согласованных CGI-примеров запросов (сталь, алюминий, пластик, оцинкованный элемент). Источники — src/surface-config.js; purpose:discussion-example, approved/enabled:true относятся к показу иллюстрации, не к технической применимости. Применимость материала обсуждается по задаче. См. актуальное ТЗ docs/SURFACE_BANNER_SPEC.md. Для нового кадра задать desktop/mobile, короткое название и alt, approved/enabled; после изменения выполнить сборку для синхронизации первого кадра без JS. См. docs/V11_SURFACES.md и промпты docs/SURFACE_IMAGE_PROMPTS.json.
 
 ## Галерея компании
 
 companyGallery: production, team, laboratory, control, video. Фото и постеры 4:3: desktop от 1600 px, mobile от 800 px; WebP/JPEG. Указать src/mobileSrc, alt, position/mobilePosition, approved:true и enabled:true только для утверждённой реальной съёмки. Видео MP4/WebM, poster/mobilePoster обязательны; controls, без автоматического запуска, muted по умолчанию. При отсутствии источников публичная галерея скрыта, ?company=review показывает серые слоты. См. docs/V13_COMPANY.md.
 
+
+## Давальческие операции V14
+
+Три будущих документальных источника в src/tolling.js: paste/components/other, src/mobileSrc и alt. Пока src:null, approved:false; один серый слот меняется с выбранной операцией. Фото 4:3, desktop от 1600 px, mobile от 800 px, только согласованная реальная операция. ТЗ на съёмку в этот пакет не входит.

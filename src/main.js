@@ -1,9 +1,10 @@
-import { initializeCompanyGallery } from './company.js?v=13';
-import { initializeSurfaceBanner } from './surfaces.js';
+import { initializeCompanyGallery } from './company.js?v=14';
+import { initializeSurfaceBanner } from './surfaces.js?v=14';
+import { initializeTolling } from './tolling.js?v=14';
 import { initializeMaterials } from './materials.js';
 import { initializePartnerMarquee } from './partner-marquee.js';
 import { mountQuoteDialog } from './quote.js';
-import { media, integration, partners } from './media-config.js?v=13';
+import { media, integration, partners } from './media-config.js?v=14';
 import { mountPartners } from './partners.js';
 import { initializeForm } from './form.js';
 
@@ -172,7 +173,7 @@ function initializeReveals(){
 
 initializePartnerMarquee();
 mountPartners(partners,document.querySelector('#partners'),{preview:new URLSearchParams(location.search).get('preview')==='partners'});
-initializeCompanyGallery();initializeSurfaceBanner();initializeMaterials();mountMedia();initializeNavigation();initializeForm();initializeLegal();initializeReveals();initializeHeroDepth();
+initializeCompanyGallery();initializeSurfaceBanner();initializeTolling();initializeMaterials();mountMedia();initializeNavigation();initializeForm();initializeLegal();initializeReveals();initializeHeroDepth();
 const contextInput=document.querySelector('#request-context');
 const contextMessage=document.querySelector('#inquiry-context');
 const setContext=(value)=>{contextInput.value=value;contextMessage.hidden=!value;};

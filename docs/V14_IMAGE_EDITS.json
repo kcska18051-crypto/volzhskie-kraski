@@ -1,0 +1,26 @@
+{
+  "steel-panel": {
+    "prompt": "Edit target: the provided industrial CGI illustration. Change only framing and extend the missing edges of the same object: zoom the camera out so a single finite rectangular folded steel panel with a red painted broad face and a shallow return flange; its entire perimeter and both ends must be visible. Keep the same navy blue studio background, red coating, material identity, three-quarter camera direction, diffuse lighting, restrained sheen, and photoreal CGI style. Landscape 3:2 canvas, one centered object occupying about 75 percent of the width and 75 percent of height, with at least 10 percent empty blue margin on EVERY side. Absolutely no object clipped by the image border, no extra objects, no text, logos, hands, factory or equipment. This is an illustrative example of a task to discuss, not documentary client work. Maintain natural finite geometry and match the established visual style.",
+    "target": "public/assets/surface-steel-panel.webp",
+    "outputs": [
+      "public/assets/surface-steel-panel-v14.webp",
+      "public/assets/surface-steel-panel-v14-mobile.webp"
+    ]
+  },
+  "plastic": {
+    "prompt": "Edit target: the provided industrial CGI illustration. Change only framing and extend the missing edges of the same object: zoom the camera out so a single finite red molded plastic housing tray; its entire perimeter, all four outer corners and all its internal ribs must be visible. Keep the same navy blue studio background, red coating, material identity, three-quarter camera direction, diffuse lighting, restrained sheen, and photoreal CGI style. Landscape 3:2 canvas, one centered object occupying about 75 percent of the width and 75 percent of height, with at least 10 percent empty blue margin on EVERY side. Absolutely no object clipped by the image border, no extra objects, no text, logos, hands, factory or equipment. This is an illustrative example of a task to discuss, not documentary client work. Maintain natural finite geometry and match the established visual style.",
+    "target": "public/assets/surface-plastic.webp",
+    "outputs": [
+      "public/assets/surface-plastic-v14.webp",
+      "public/assets/surface-plastic-v14-mobile.webp"
+    ]
+  },
+  "galvanized": {
+    "prompt": "Edit target: the provided industrial CGI illustration. Change only framing and extend the missing edges of the same object: zoom the camera out so a single short finite galvanized L angle steel sample, one flange painted red and the other bare spangled zinc; both cut ends and the entire perimeter must be visible. Keep the same navy blue studio background, red coating, material identity, three-quarter camera direction, diffuse lighting, restrained sheen, and photoreal CGI style. Landscape 3:2 canvas, one centered object occupying about 75 percent of the width and 75 percent of height, with at least 10 percent empty blue margin on EVERY side. Absolutely no object clipped by the image border, no extra objects, no text, logos, hands, factory or equipment. This is an illustrative example of a task to discuss, not documentary client work. Maintain natural finite geometry and match the established visual style.",
+    "target": "public/assets/surface-galvanized.webp",
+    "outputs": [
+      "public/assets/surface-galvanized-v14.webp",
+      "public/assets/surface-galvanized-v14-mobile.webp"
+    ]
+  }
+}

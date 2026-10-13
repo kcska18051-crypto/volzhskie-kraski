@@ -36,8 +36,8 @@ export const integration = {
   maxFileBytes: 10 * 1024 * 1024,
 };
 
-// Editable substrate banner frames; unconfirmed entries stay disabled.
-export { surfaceFrames } from './surface-config.js';
+// All five approved illustrations are examples of requests, not technical applicability claims.
+export { surfaceFrames } from './surface-config.js?v=14';
 
 /** Real company media only. Empty slots are shown solely in ?company=review. */
 export const companyGallery=[
