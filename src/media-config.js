@@ -38,3 +38,12 @@ export const integration = {
 
 // Editable substrate banner frames; unconfirmed entries stay disabled.
 export { surfaceFrames } from './surface-config.js';
+
+/** Real company media only. Empty slots are shown solely in ?company=review. */
+export const companyGallery=[
+ {id:'production',title:'Производство',type:'image',src:null,mobileSrc:null,alt:'Производственные мощности Волжских красок',position:'center',mobilePosition:'center',approved:false,enabled:false},
+ {id:'team',title:'Команда',type:'image',src:null,mobileSrc:null,alt:'Специалисты Волжских красок в работе',position:'center',mobilePosition:'center',approved:false,enabled:false},
+ {id:'laboratory',title:'Лаборатория разработки',type:'image',src:null,mobileSrc:null,alt:'Лаборатория разработки Волжских красок',position:'center',mobilePosition:'center',approved:false,enabled:false},
+ {id:'control',title:'Контроль качества',type:'image',src:null,mobileSrc:null,alt:'Контроль партии в лаборатории Волжских красок',position:'center',mobilePosition:'center',approved:false,enabled:false},
+ {id:'video',title:'Видео производства',type:'video',src:null,mobileSrc:null,poster:null,mobilePoster:null,alt:'Видео производственных операций Волжских красок',position:'center',mobilePosition:'center',approved:false,enabled:false},
+];

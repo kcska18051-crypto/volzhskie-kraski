@@ -1,0 +1,5 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {selectCompanyMedia,isCompanyMediaReady} from '../src/company.js';
+const image=(id,extra={})=>({id,title:id,type:'image',src:'/real.jpg',enabled:true,approved:true,...extra});
+test('company gallery excludes empty and unapproved documentary slots from public view',()=>{const slots=[image('a'),image('b',{src:null}),image('c',{approved:false}),image('d',{enabled:false})];assert.deepEqual(selectCompanyMedia(slots).map(f=>f.id),['a']);assert.equal(selectCompanyMedia(slots,true).length,4);assert.equal(selectCompanyMedia([]).length,0);});
+test('company video needs an approved source and poster; no dummy play is available',()=>{assert.equal(isCompanyMediaReady(image('v',{type:'video',poster:null})),false);assert.equal(isCompanyMediaReady(image('v',{type:'video',poster:'/poster.jpg'})),true);assert.equal(isCompanyMediaReady(image('v',{type:'video',poster:'/poster.jpg',approved:false})),false);});
+test('company gallery normalizes duplicate and malformed slots',()=>{assert.equal(selectCompanyMedia([image('a'),image('a'),image('b',{title:''}),image('x',{type:'unknown'})],true).length,1);});
