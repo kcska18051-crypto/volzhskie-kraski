@@ -1,0 +1,146 @@
+[
+  {
+    "animation": "mapEnter",
+    "dash": "0px",
+    "opacity": "0.0279818",
+    "phase": "animationstart",
+    "target": "map-countries",
+    "time": 23295
+  },
+  {
+    "animation": "mapEnter",
+    "dash": "0px",
+    "opacity": "0.0310442",
+    "phase": "animationstart",
+    "target": "country-labels",
+    "time": 23296
+  },
+  {
+    "animation": "mapEnter",
+    "dash": "0px",
+    "opacity": "0.000534872",
+    "phase": "animationstart",
+    "target": "map-origin",
+    "time": 23575
+  },
+  {
+    "animation": "routeEnter",
+    "dash": "0.999194px",
+    "opacity": "0.95",
+    "phase": "animationstart",
+    "target": "map-route",
+    "time": 23787
+  },
+  {
+    "animation": "routeEnter",
+    "dash": "0.97586px",
+    "opacity": "0.95",
+    "phase": "animationstart",
+    "target": "map-route",
+    "time": 24027
+  },
+  {
+    "animation": "mapEnter",
+    "dash": "0px",
+    "opacity": "1",
+    "phase": "animationend",
+    "target": "country-labels",
+    "time": 24175
+  },
+  {
+    "animation": "routeEnter",
+    "dash": "0.990876px",
+    "opacity": "0.95",
+    "phase": "animationstart",
+    "target": "map-route",
+    "time": 24258
+  },
+  {
+    "animation": "mapEnter",
+    "dash": "0px",
+    "opacity": "1",
+    "phase": "animationend",
+    "target": "map-countries",
+    "time": 24275
+  },
+  {
+    "animation": "mapEnter",
+    "dash": "0px",
+    "opacity": "1",
+    "phase": "animationend",
+    "target": "map-origin",
+    "time": 24375
+  },
+  {
+    "animation": "routeEnter",
+    "dash": "0.967316px",
+    "opacity": "0.95",
+    "phase": "animationstart",
+    "target": "map-route",
+    "time": 24509
+  },
+  {
+    "animation": "routeEnter",
+    "dash": "0.982327px",
+    "opacity": "0.95",
+    "phase": "animationstart",
+    "target": "map-route",
+    "time": 24743
+  },
+  {
+    "animation": "routeEnter",
+    "dash": "0px",
+    "opacity": "0.95",
+    "phase": "animationend",
+    "target": "map-route",
+    "time": 24975
+  },
+  {
+    "animation": "routeEnter",
+    "dash": "0.997576px",
+    "opacity": "0.95",
+    "phase": "animationstart",
+    "target": "map-route",
+    "time": 24976
+  },
+  {
+    "animation": "routeEnter",
+    "dash": "0px",
+    "opacity": "0.95",
+    "phase": "animationend",
+    "target": "map-route",
+    "time": 25226
+  },
+  {
+    "animation": "routeEnter",
+    "dash": "0px",
+    "opacity": "0.95",
+    "phase": "animationend",
+    "target": "map-route",
+    "time": 25459
+  },
+  {
+    "animation": "routeEnter",
+    "dash": "0px",
+    "opacity": "0.95",
+    "phase": "animationend",
+    "target": "map-route",
+    "time": 25709
+  },
+  {
+    "animation": "routeEnter",
+    "dash": "0px",
+    "opacity": "0.95",
+    "phase": "animationend",
+    "target": "map-route",
+    "time": 25951
+  },
+  {
+    "animation": "routeEnter",
+    "dash": "0px",
+    "opacity": "0.95",
+    "phase": "animationend",
+    "target": "map-route",
+    "time": 26177
+  }
+]

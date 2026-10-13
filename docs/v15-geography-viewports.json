@@ -1,0 +1,118 @@
+[
+  {
+    "copyMapGap": 28,
+    "labels": [
+      {
+        "height": 22,
+        "text": "Производство в Ярославле",
+        "visible": true
+      },
+      {
+        "height": 18,
+        "text": "Россия",
+        "visible": true
+      },
+      {
+        "height": 18,
+        "text": "Беларусь",
+        "visible": true
+      },
+      {
+        "height": 18,
+        "text": "Казахстан",
+        "visible": true
+      }
+    ],
+    "mapWidth": 360,
+    "mobile": true,
+    "overflow": false,
+    "width": 360
+  },
+  {
+    "copyMapGap": 28,
+    "labels": [
+      {
+        "height": 25,
+        "text": "Производство в Ярославле",
+        "visible": true
+      },
+      {
+        "height": 20,
+        "text": "Россия",
+        "visible": true
+      },
+      {
+        "height": 20,
+        "text": "Беларусь",
+        "visible": true
+      },
+      {
+        "height": 20,
+        "text": "Казахстан",
+        "visible": true
+      }
+    ],
+    "mapWidth": 390,
+    "mobile": true,
+    "overflow": false,
+    "width": 390
+  },
+  {
+    "copyMapGap": 28,
+    "labels": [
+      {
+        "height": 26,
+        "text": "Производство в Ярославле",
+        "visible": true
+      },
+      {
+        "height": 21,
+        "text": "Россия",
+        "visible": true
+      },
+      {
+        "height": 21,
+        "text": "Беларусь",
+        "visible": true
+      },
+      {
+        "height": 21,
+        "text": "Казахстан",
+        "visible": true
+      }
+    ],
+    "mapWidth": 768,
+    "mobile": false,
+    "overflow": false,
+    "width": 768
+  },
+  {
+    "copyMapGap": 28,
+    "labels": [
+      {
+        "height": 43,
+        "text": "Производство в Ярославле",
+        "visible": true
+      },
+      {
+        "height": 33,
+        "text": "Россия",
+        "visible": true
+      },
+      {
+        "height": 33,
+        "text": "Беларусь",
+        "visible": true
+      },
+      {
+        "height": 33,
+        "text": "Казахстан",
+        "visible": true
+      }
+    ],
+    "mapWidth": 1920,
+    "mobile": false,
+    "overflow": false,
+    "width": 1920
+  }
+]
