@@ -1,4 +1,4 @@
-import {companyGallery} from './media-config.js';
+import {companyGallery} from './media-config.js?v=13';
 export function isCompanyMediaReady(frame){return frame.approved===true&&frame.enabled===true&&!!frame.src?.trim()&&(frame.type==='image'||(frame.type==='video'&&!!frame.poster?.trim()));}
 export function selectCompanyMedia(slots,review=false){const seen=new Set();return slots.filter(frame=>{if(!frame.id||!frame.title?.trim()||!['image','video'].includes(frame.type)||seen.has(frame.id)||(!review&&!isCompanyMediaReady(frame)))return false;seen.add(frame.id);return true;});}
 export function initializeCompanyGallery(){

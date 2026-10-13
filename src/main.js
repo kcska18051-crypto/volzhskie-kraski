@@ -1,9 +1,9 @@
-import { initializeCompanyGallery } from './company.js';
+import { initializeCompanyGallery } from './company.js?v=13';
 import { initializeSurfaceBanner } from './surfaces.js';
 import { initializeMaterials } from './materials.js';
 import { initializePartnerMarquee } from './partner-marquee.js';
 import { mountQuoteDialog } from './quote.js';
-import { media, integration, partners } from './media-config.js';
+import { media, integration, partners } from './media-config.js?v=13';
 import { mountPartners } from './partners.js';
 import { initializeForm } from './form.js';
 
