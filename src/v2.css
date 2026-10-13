@@ -345,3 +345,6 @@
 /* V16: one follow-up/CTA, below the choices on desktop and after media on mobile. */
 .tolling-layout{grid-template-areas:'operations media' 'followup media';grid-template-rows:auto 1fr;row-gap:24px}.tolling-options{grid-area:operations}.tolling-detail{grid-area:media}.tolling-followup{grid-area:followup;align-self:start;min-width:0}.section .tolling-followup .tolling-conditions{margin:0 0 20px}.tolling-followup .button{gap:20px;padding-inline:20px}
 @media(max-width:700px){.tolling-layout{grid-template-areas:'operations' 'media' 'followup';grid-template-rows:auto auto auto;row-gap:28px}.section .tolling-followup .tolling-conditions{margin:0 0 20px}}
+
+/* V17: avoid an orphaned last word in the approved specialists paragraph. */
+.company-points>li:first-child>span{text-wrap:pretty}
