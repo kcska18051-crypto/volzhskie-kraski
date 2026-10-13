@@ -144,7 +144,27 @@ function initializeLegal() {
 
 function initializeReveals(){
   if(reducedMotion.matches||!('IntersectionObserver' in window))return;
-  try{const observer=new IntersectionObserver(entries=>{for(const entry of entries)if(entry.isIntersecting){entry.target.classList.add('is-visible');if(entry.target.classList.contains('geography'))entry.target.classList.add('geo-motion');observer.unobserve(entry.target);}},{threshold:.08,rootMargin:'0px 0px -5% 0px'});document.querySelectorAll('.reveal,.geography').forEach(el=>observer.observe(el));}catch{/* Content is visible without an observer. */}
+  const targets=[...document.querySelectorAll('.reveal,.geo-map')];
+  let observer;
+  const showAll=()=>{observer?.disconnect();targets.forEach(el=>el.classList.remove('reveal-pending','geo-pending'));};
+  try{
+    observer=new IntersectionObserver(entries=>{
+      for(const entry of entries){
+        if(!entry.isIntersecting)continue;
+        const el=entry.target;
+        if(el.classList.contains('geo-map'))el.closest('.geography').classList.add('geo-motion');
+        else{el.classList.add('is-visible');el.addEventListener('transitionend',()=>el.classList.remove('reveal-pending'),{once:true});}
+        observer.unobserve(el);
+      }
+    },{threshold:0,rootMargin:'0px 0px 100px 0px'});
+    for(const el of targets){
+      // Never hide content that is already on screen when JS starts.
+      if(el.getBoundingClientRect().top<=innerHeight+100)continue;
+      el.classList.add(el.classList.contains('geo-map')?'geo-pending':'reveal-pending');
+      observer.observe(el);
+    }
+    reducedMotion.addEventListener('change',()=>{if(reducedMotion.matches)showAll();});
+  }catch{showAll();}
 }
 
 initializePartnerMarquee();
