@@ -9,16 +9,16 @@ export function initializeSurfaceBanner(){
  const review=new URLSearchParams(location.search).get('surfaces')==='review';
  const frames=selectSurfaceFrames(surfaceFrames,review),stage=banner.querySelector('.surface-stage'),controls=banner.querySelector('.surface-controls'),pause=banner.querySelector('.surface-pause'),dots=banner.querySelector('.surface-dots'),name=banner.querySelector('.surface-name'),note=banner.querySelector('.surface-note');
  const reduced=matchMedia('(prefers-reduced-motion: reduce)'),mobile=matchMedia('(max-width:700px)');
- const failed=new Set(),preloads=new Map();let current=0,busy=false,manualPause=false,focus=false,inView=false,timer;
+ const failed=new Set(),preloads=new Map();let current=0,busy=false,manualPause=false,inView=false,timer;
  banner.querySelector('.surface-review-note').hidden=!review;
  banner.classList.toggle('has-notes',frames.some(f=>f.note||!f.approved));
  const count=()=>frames.filter((_,i)=>!failed.has(i)).length;
- const running=()=>!document.querySelector('dialog[open]')&&canRunSurfaceMotion({count:count(),inView,hidden:document.hidden,reduced:reduced.matches,manualPause,hover:false,focus});
+ const running=()=>!document.querySelector('dialog[open]')&&canRunSurfaceMotion({count:count(),inView,hidden:document.hidden,reduced:reduced.matches,manualPause,hover:false,focus:false});
  const caption=()=>{const frame=frames[current];name.textContent=frames.length&&count()===0?'Изображения временно недоступны':frame?.title||'';note.textContent=frame?(review&&!frame.approved?'На согласовании. '+(frame.note||'Основание не включено в публичный показ'):frame.note||''):'';dots.querySelectorAll('button').forEach((button,i)=>{button.setAttribute('aria-pressed',String(i===current));button.disabled=failed.has(i);});};
- const updateControls=()=>{controls.hidden=count()<2;pause.hidden=reduced.matches;pause.setAttribute('aria-pressed',String(manualPause));pause.textContent=manualPause?'Продолжить анимацию':'Остановить анимацию';};
+ const updateControls=()=>{controls.hidden=count()<2;pause.hidden=reduced.matches;pause.setAttribute('aria-pressed',String(manualPause));pause.textContent=manualPause?'▶':'Ⅱ';pause.setAttribute('aria-label',manualPause?'Продолжить':'Пауза');pause.setAttribute('title',manualPause?'Продолжить':'Пауза');};
  const nextIndex=()=>nextSurfaceIndex(current,frames.length,failed);
  function preloadNext(){const index=nextIndex();if(index!==current)load(frames[index]).catch(()=>{failed.add(index);caption();refresh();});}
- function refresh(){clearInterval(timer);timer=undefined;updateControls();if(running()){preloadNext();timer=setInterval(()=>show(nextIndex()),3000);}}
+ function refresh(){clearInterval(timer);timer=undefined;updateControls();if(running()){preloadNext();timer=setInterval(()=>show(nextIndex()),2500);}}
  function load(frame){const src=mobile.matches?frame.mobileSrc||frame.src:frame.src;if(!preloads.has(src))preloads.set(src,new Promise((resolve,reject)=>{const image=new Image();const timeout=setTimeout(()=>{image.onload=image.onerror=null;reject(new Error('Surface image timeout'));},10000);image.onload=()=>{clearTimeout(timeout);resolve();};image.onerror=()=>{clearTimeout(timeout);reject(new Error('Surface image unavailable'));};image.src=src;}));return preloads.get(src);}
  async function show(index,manual=false){
   if(busy||index===current||!frames[index]||failed.has(index))return;busy=true;
@@ -34,7 +34,6 @@ export function initializeSurfaceBanner(){
  }
  frames.forEach((frame,index)=>{const button=document.createElement('button');button.type='button';button.setAttribute('aria-label','Показать: '+frame.title);button.setAttribute('aria-pressed',String(index===current));button.textContent=String(index+1);button.addEventListener('click',()=>{manualPause=true;refresh();show(index,true);});dots.append(button);});
  pause.addEventListener('click',()=>{manualPause=!manualPause;refresh();});
- banner.addEventListener('focusin',()=>{focus=true;refresh();});banner.addEventListener('focusout',()=>queueMicrotask(()=>{focus=banner.contains(document.activeElement);refresh();}));
  document.addEventListener('visibilitychange',refresh);if('MutationObserver' in window)document.querySelectorAll('dialog').forEach(dialog=>new MutationObserver(refresh).observe(dialog,{attributes:true,attributeFilter:['open']}));reduced.addEventListener('change',()=>{refresh();if(reduced.matches&&current!==0&&!failed.has(0))show(0,true);});
  if('IntersectionObserver' in window)new IntersectionObserver(entries=>{inView=entries[0].isIntersecting;refresh();},{threshold:.05}).observe(banner);
  else{const check=()=>{const r=banner.getBoundingClientRect();inView=r.bottom>0&&r.top<innerHeight;refresh();};addEventListener('scroll',check,{passive:true});check();}
