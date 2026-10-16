@@ -629,3 +629,27 @@
 #factory .company-proof-strip article+article{padding-left:24px;border-left:1px solid var(--line)}
 @media(max-width:1100px) and (min-width:768px){#factory .company-proof-strip{gap:22px}#factory .company-proof-strip article+article{padding-left:20px}#factory .company-proof-strip h3{font-size:18px}#factory .company-proof-strip p{font-size:14px}}
 @media(max-width:767px){#factory .company-copy{row-gap:24px}#factory .company-proof-strip{grid-template-columns:minmax(0,1fr);gap:18px;padding-top:22px}#factory .company-proof-strip article+article{padding:18px 0 0;border-left:0;border-top:1px solid var(--line)}#factory .company-proof-strip h3{font-size:19px;margin-bottom:8px}#factory .company-proof-strip p{font-size:15px}}
+
+/* Geography: retain the existing projections and endpoints; emphasize the chosen route. */
+#geography.section{padding-top:36px;padding-bottom:12px}
+#geography .geo-copy>p{margin-top:14px;font-size:17px;line-height:1.55}
+#geography .geo-copy .geo-commercial{font-size:15px;line-height:1.5;color:#fff;border-left:2px solid var(--red);padding-left:12px;margin-top:12px;max-width:740px}
+#geography .geo-actions{margin-top:16px;gap:16px}
+#geography .geo-map{width:min(72vw,1400px);margin-top:0}
+#geography .map-route{transition:stroke 200ms ease,opacity 200ms ease,stroke-width 200ms ease}
+#geography .route-end{transition:opacity 200ms ease,r 200ms ease,stroke-width 200ms ease}
+#geography .geo-map:has(.map-route.is-highlighted) .map-route:not(.is-highlighted){opacity:.25!important}
+#geography .geo-map:has(.map-route.is-highlighted) .route-end:not(.is-highlighted){animation:none;opacity:.35!important}
+#geography .geo-map .map-route.is-highlighted{stroke:var(--red);stroke-width:2.7;opacity:1!important}
+#geography .geo-map .route-end.is-highlighted{fill:var(--red);stroke:#fff;stroke-width:2.2;r:6px;opacity:1!important}
+#geography .geo-country-button{transition:background 200ms ease,border-color 200ms ease,color 200ms ease}
+#geography .geo-country-button.is-highlighted,#geography .geo-country-button[aria-pressed=true]{border-color:var(--red);background:#ffffff14;color:#fff}
+#geography .geo-country-button:active{background:#ffffff20}
+@media(max-width:1050px){#geography.section{padding-top:32px}#geography .geo-map{width:94vw;margin-top:0}#geography .geo-copy>p{max-width:740px}}
+@media(max-width:700px){#geography .geo-copy h2{font-size:30px;line-height:1.15}#geography .geo-copy>p{font-size:16px;line-height:1.55;margin-top:14px}#geography .geo-copy .geo-commercial{font-size:15px;margin-top:10px}#geography .geo-actions{margin-top:14px;gap:12px}#geography .geo-actions .button{min-height:52px}#geography .geo-map{width:100vw;margin-top:0}}
+@media(prefers-reduced-motion:reduce){#geography .map-route,#geography .route-end,#geography .geo-country-button{transition:none}}
+
+/* Mobile map caption: secondary to country names, with the existing map kept intact. */
+@media(max-width:700px){
+ #geography .geo-map .supply-scene-mobile .origin-label{font-size:25px;transform:translate(-14px,-8px)!important}
+}
