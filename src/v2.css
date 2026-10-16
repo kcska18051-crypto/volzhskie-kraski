@@ -494,3 +494,23 @@
 
 .materials .material-visual-v4 picture{position:absolute;inset:0;display:block}
 .materials .material-visual-v4 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+/* Mobile product cards: linear reading order, full-width coating imagery. */
+@media(max-width:767px){
+ .materials .materials-v4{grid-template-columns:minmax(0,1fr)}
+ .materials .material-editorial{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto auto auto;column-gap:0}
+ .materials .material-editorial h3{grid-column:1;grid-row:1;align-self:start;margin:0 0 10px;text-wrap:initial}
+ .materials .material-summary{grid-column:1;grid-row:2;margin:0 0 18px;min-height:0}
+ .materials .material-visual-v4{grid-column:1;grid-row:3;width:100%;height:auto;min-height:0;aspect-ratio:3/2;margin:0;border-radius:var(--radius-media)}
+ .materials .material-benefits{grid-column:1;grid-row:4;margin:18px 0}
+ .materials .material-actions{grid-column:1;grid-row:5;flex-direction:column;align-items:stretch;gap:2px}
+ .materials .material-commercial{width:100%;min-height:50px}
+ .materials .material-details-trigger{align-self:flex-start;min-height:44px;padding:10px 0}
+}
+
+/* Mobile Hero: reveal paint texture while preserving the approved content geometry. */
+@media(max-width:767px){
+ .hero .hero-media{inset:0 0 auto;height:460px;opacity:.92}
+ .hero .hero-media img{object-position:45% 80%!important}
+ .hero .hero-shade{inset:0;background:linear-gradient(90deg,#101d34db 0%,#101d34b3 48%,#101d3452 100%),linear-gradient(0deg,#101d34 20%,#101d34e6 38%,#101d3459 72%,#101d3426 100%)}
+}
