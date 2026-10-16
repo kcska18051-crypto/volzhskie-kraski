@@ -5,7 +5,7 @@ export function validateContact(value) {
   if (!contact) return 'Укажите телефон или e-mail';
   if (contact.includes('@')) return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(contact) ? '' : 'Проверьте e-mail: например, name@company.ru';
   const digits = contact.replace(/\D/g, '');
-  return /^[+\d\s().-]+$/.test(contact) && digits.length >= 10 && digits.length <= 15 ? '' : 'Укажите телефон с кодом города или страны либо e-mail';
+  return /^\+?[\d\s().-]+$/.test(contact) && digits.length >= 10 && digits.length <= 15 ? '' : 'Укажите телефон с кодом города или страны либо e-mail';
 }
 
 export function validateAttachment(file, maxBytes = integration.maxFileBytes) {
@@ -36,6 +36,8 @@ export function initializeForm() {
   const submitButton = form.querySelector('[type="submit"]');
   const errorIds = { name:'name-error', contact:'contact-error', consent:'consent-error', attachment:'file-error' };
   let pending = false;
+  const availability=form.querySelector('.form-availability');
+  if(availability)availability.hidden=Boolean(integration.requestEndpoint);
 
   const showError = (name, message = '') => {
     document.getElementById(errorIds[name]).textContent = message;

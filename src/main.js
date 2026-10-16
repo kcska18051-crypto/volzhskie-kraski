@@ -148,7 +148,7 @@ initializeCompanyGallery();initializeSurfaceBanner();initializeTolling();initial
 const contextInput=document.querySelector('#request-context');
 const contextMessage=document.querySelector('#inquiry-context');
 const setContext=(value)=>{contextInput.value=value;contextMessage.hidden=!value;};
-document.querySelector('#context-remove').addEventListener('click',()=>{setContext('');document.querySelector('#request-form input[name=service]:checked').focus();});
+document.querySelector('#context-remove').addEventListener('click',()=>{setContext('');document.querySelector('#request-form input[name=name]').focus();});
 document.querySelectorAll('#request-form input[name="service"]').forEach(input=>input.addEventListener('change',()=>setContext('')));
 document.querySelectorAll('[data-service]').forEach((link)=>link.addEventListener('click',()=>{
   const input=document.querySelector(`#request-form input[name="service"][value="${link.dataset.service}"]`);
@@ -156,4 +156,4 @@ document.querySelectorAll('[data-service]').forEach((link)=>link.addEventListene
   setContext(link.dataset.context||'');
 }));
 
-mountQuoteDialog(link=>{if(link.dataset.quote==='kp')setContext('');document.querySelector('#navigation').classList.remove('is-open');const toggle=document.querySelector('.menu-toggle');toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Открыть меню');});
+mountQuoteDialog(link=>{if(link.dataset.quote==='kp'){setContext('');document.querySelector('#request-form input[name=service][value=other]').checked=true;}document.querySelector('#navigation').classList.remove('is-open');const toggle=document.querySelector('.menu-toggle');toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Открыть меню');});

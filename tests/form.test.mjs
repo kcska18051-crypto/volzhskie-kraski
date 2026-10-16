@@ -3,8 +3,8 @@ import assert from 'node:assert/strict';
 import { validateContact, validateAttachment, validateInquiry } from '../src/form.js';
 
 test('accepts a single real contact method',()=>{
-  for(const value of ['sales@example.ru',' +7 (4852) 58-76-54 ','8 999 123 45 67'])assert.equal(validateContact(value),'');
-  for(const value of ['','not-an-email','user@host','12345','+7 999 123 45 ab'])assert.notEqual(validateContact(value),'');
+  for(const value of ['sales@example.ru',' +7 (4852) 58-76-54 ','8 999 123 45 67','+44 20 7946 0958','+1 (212) 555-0123'])assert.equal(validateContact(value),'');
+  for(const value of ['','not-an-email','user@host','12345','+7 999 123 45 ab','++7 999 123 45 67','7+9991234567'])assert.notEqual(validateContact(value),'');
 });
 test('requires name and consent, allows optional company/task/file',()=>{
   assert.deepEqual(validateInquiry({name:'Анна',contact:'anna@example.ru',consent:true}),{});
