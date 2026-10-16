@@ -1,3 +1,4 @@
+import { initializeSiteNavigation } from './navigation.js';
 import { initializeCompanyGallery } from './company.js?v=14';
 import { initializeSurfaceBanner } from './surfaces.js?v=14';
 import { initializeTolling } from './tolling.js?v=14';
@@ -77,40 +78,7 @@ function mountMedia() {
   });
 }
 
-function initializeNavigation() {
-  const menu = document.querySelector('#navigation');
-  const toggle = document.querySelector('.menu-toggle');
-  const desktop = matchMedia('(min-width:1051px)');
-  const close = () => { menu.classList.remove('is-open'); toggle.setAttribute('aria-expanded','false'); toggle.setAttribute('aria-label','Открыть меню'); };
-  toggle.addEventListener('click', () => {
-    const open = toggle.getAttribute('aria-expanded') !== 'true';
-    menu.classList.toggle('is-open',open);
-    toggle.setAttribute('aria-expanded',String(open));
-    toggle.setAttribute('aria-label',open ? 'Закрыть меню' : 'Открыть меню');
-  });
-  menu.querySelectorAll('a').forEach((link) => link.addEventListener('click', close));
-  document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') { close(); toggle.focus(); } });
-  document.addEventListener('click', (event) => { if (!event.target.closest('.header')) close(); });
-  desktop.addEventListener('change', () => { if (desktop.matches) close(); });
-  const links = [...menu.querySelectorAll('a')];
-  const sections = links.map((link) => document.querySelector(link.hash));
-  let scrollQueued = false;
-  const onScroll = () => {
-    if (scrollQueued) return;
-    scrollQueued = true;
-    requestAnimationFrame(() => {
-      document.querySelector('#header').classList.toggle('is-scrolled',scrollY>20);
-      let active = -1;
-      let closestTop = -Infinity;
-      const threshold = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) + 130;
-      sections.forEach((section,index) => { const top=section.getBoundingClientRect().top; if (top <= threshold && top > closestTop) { active=index; closestTop=top; } });
-      links.forEach((link,index) => { link.classList.toggle('is-active',index===active); if (index===active) link.setAttribute('aria-current','location'); else link.removeAttribute('aria-current'); });
-      scrollQueued = false;
-    });
-  };
-  document.addEventListener('scroll',onScroll,{passive:true});
-  onScroll();
-}
+function initializeNavigation() { initializeSiteNavigation(); }
 
 function initializeHeroDepth() {
   const hero=document.querySelector('.hero');
@@ -136,10 +104,12 @@ function initializeLegal() {
   const text = document.querySelector('#legal-text');
   document.querySelectorAll('[data-legal]').forEach((button) => button.addEventListener('click',() => {
     const privacy = button.dataset.legal==='privacy';
-    const url = privacy?integration.privacyUrl:integration.consentUrl;
+    const agreement = button.dataset.legal==='agreement';
+    const url = agreement?integration.agreementUrl:privacy?integration.privacyUrl:integration.consentUrl;
     if (url) { location.assign(url);return; }
-    title.textContent=privacy?'Политика конфиденциальности':'Согласие на обработку данных';
+    title.textContent=agreement?'Пользовательское соглашение':privacy?'Политика конфиденциальности':'Согласие на обработку данных';
     text.textContent='Утверждённый документ пока не предоставлен. Перед запуском сайта необходимо подключить документ оператора персональных данных. Сейчас данные формы не отправляются и не сохраняются на сайте';
+    if(agreement)text.textContent='Утверждённый текст пользовательского соглашения пока не предоставлен.';
     dialog.showModal();
   }));
   dialog.querySelector('.dialog-close').addEventListener('click',()=>dialog.close());

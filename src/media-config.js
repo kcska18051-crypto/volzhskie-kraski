@@ -33,6 +33,7 @@ export const integration = {
   csrfToken: null,
   privacyUrl: null,
   consentUrl: null,
+  agreementUrl: null,
   maxFileBytes: 10 * 1024 * 1024,
 };
 

@@ -1,0 +1,4 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {activeNavigationSection} from '../src/navigation.js';
+const sections=[{top:-500,bottom:100,target:'#lkm'},{top:100,bottom:600,target:'#applications'},{top:600,bottom:900,target:null}];
+test('scrollspy follows the containing section, clearing unmapped sections',()=>{assert.equal(activeNavigationSection(sections,99),'#lkm');assert.equal(activeNavigationSection(sections,100),'#applications');assert.equal(activeNavigationSection(sections,599),'#applications');assert.equal(activeNavigationSection(sections,600),null);assert.equal(activeNavigationSection(sections,-600),null);});
+test('contacts owns the end of the document even when it cannot reach the reading line',()=>{assert.equal(activeNavigationSection(sections,99,true),'#contacts');});
