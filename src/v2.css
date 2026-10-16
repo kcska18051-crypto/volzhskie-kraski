@@ -748,3 +748,9 @@ main>section[tabindex="-1"]:focus{outline:none}
  #header .menu-toggle[aria-expanded=true] span:first-child{transform:translateY(6px) rotate(45deg)}
  #header .menu-toggle[aria-expanded=true] span:last-child{transform:translateY(-6px) rotate(-45deg)}
 }
+
+/* Blend the desktop photograph into the Hero without a hard image edge. */
+@media(min-width:768px){
+ .hero .hero-media{-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 22%,#000 100%);mask-image:linear-gradient(90deg,transparent 0%,#000 22%,#000 100%)}
+ .hero .hero-shade{inset:0}
+}
