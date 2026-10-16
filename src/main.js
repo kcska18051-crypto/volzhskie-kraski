@@ -173,7 +173,7 @@ function initializeReveals(){
 }
 
 initializePartnerMarquee();
-mountPartners(partners,document.querySelector('#partners'),{preview:new URLSearchParams(location.search).get('preview')==='partners'});
+mountPartners(partners,document.querySelector('#partners'),{placeholders:true});
 initializeCompanyGallery();initializeSurfaceBanner();initializeTolling();initializeGeography();initializeMaterials();mountMedia();initializeNavigation();initializeForm();initializeLegal();initializeReveals();initializeHeroDepth();
 const contextInput=document.querySelector('#request-context');
 const contextMessage=document.querySelector('#inquiry-context');

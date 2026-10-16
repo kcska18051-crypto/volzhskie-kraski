@@ -1,4 +1,4 @@
-/** Render only client-approved originals. Empty or failed slots never reach visitors. */
+/** Approved logos, with an explicitly enabled neutral fallback for the permanent partners section. */
 export function mountPartners(slots, section = document.querySelector('#partners'), options = {}) {
   const grid = section.querySelector('.partners-grid');
   const note=section.querySelector('.partner-preview-note');
@@ -6,6 +6,8 @@ export function mountPartners(slots, section = document.querySelector('#partners
   grid.replaceChildren();
   section.hidden = true;
   const notify=()=>section.dispatchEvent(new Event('partnerschange'));
+  const showPlaceholders=()=>{grid.replaceChildren();for(let i=0;i<8;i++){const item=document.createElement('li');item.className='partner-placeholder';item.setAttribute('aria-hidden','true');grid.append(item);}section.hidden=false;notify();};
+  if(options.placeholders && !slots.some(slot=>slot.approved===true && slot.name?.trim() && slot.src?.trim())){showPlaceholders();return;}
   if(options.preview && !slots.some(slot=>slot.approved===true && slot.name?.trim() && slot.src?.trim())){
     for(let i=0;i<Math.min(8,Math.max(4,slots.length));i++){const item=document.createElement('li');item.className='partner-placeholder';item.setAttribute('aria-hidden','true');grid.append(item);}
     section.hidden=false;section.querySelector('.partner-preview-note').hidden=false;notify();return;
@@ -26,6 +28,7 @@ export function mountPartners(slots, section = document.querySelector('#partners
     image.addEventListener('error', () => {
       item.remove();
       section.hidden = ![...grid.children].some(child => !child.hidden);
+      if(options.placeholders && !grid.children.length){showPlaceholders();return;}
       notify();
     }, { once: true });
     item.append(image);

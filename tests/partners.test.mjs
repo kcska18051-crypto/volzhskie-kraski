@@ -34,3 +34,9 @@ test('approval preview uses anonymous slots and is opt-in',()=>{
  mountPartners(Array(8).fill({approved:false}),section,{preview:true});assert.equal(section.hidden,false);assert.equal(grid.children.length,8);assert.ok(grid.children.every(item=>item.className==='partner-placeholder'&&item.children.length===0));assert.equal(note.hidden,false);
  mountPartners([],section);assert.equal(section.hidden,true);assert.equal(grid.children.length,0);assert.equal(note.hidden,true);
 });
+
+test('permanent partner section keeps neutral placeholders without inventing company logos',()=>{
+ const {grid,section}=fixture();globalThis.document.createElement=()=>{const item=new Element();item.setAttribute=()=>{};return item;};
+ mountPartners([],section,{placeholders:true});assert.equal(section.hidden,false);assert.equal(grid.children.length,8);assert.ok(grid.children.every(item=>item.className==='partner-placeholder'&&item.children.length===0));
+ mountPartners([approved()],section,{placeholders:true});grid.children[0].children[0].dispatchEvent(new Event('error'));assert.equal(section.hidden,false);assert.equal(grid.children.length,8);
+});
