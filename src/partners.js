@@ -13,10 +13,16 @@ export function mountPartners(slots, section = document.querySelector('#partners
     section.hidden=false;section.querySelector('.partner-preview-note').hidden=false;notify();return;
   }
   for (const slot of slots) {
-    if (slot.approved !== true || !slot.name?.trim() || !slot.src?.trim()) continue;
+    if (slot.approved !== true || !slot.name?.trim() || !slot.src?.trim()) {
+      if(options.placeholders){const empty=document.createElement('li');empty.className='partner-placeholder';empty.setAttribute('aria-hidden','true');grid.append(empty);section.hidden=false;}
+      continue;
+    }
     const item = document.createElement('li');
     const image = document.createElement('img');
-    image.alt = slot.name;
+    image.alt = '';
+    item.className = 'partner-brand';
+    const label = document.createElement('span');
+    label.textContent = slot.name;
     image.decoding = 'async';
     item.hidden = true;
     image.addEventListener('load', () => {
@@ -32,6 +38,7 @@ export function mountPartners(slots, section = document.querySelector('#partners
       notify();
     }, { once: true });
     item.append(image);
+    item.append(label);
     grid.append(item);
     image.src = slot.src;
   }
