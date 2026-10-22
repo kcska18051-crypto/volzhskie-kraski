@@ -6,7 +6,7 @@ import { initializeGeography } from './geography.js?v=18';
 import { initializeMaterials } from './materials.js';
 import { initializePartnerMarquee } from './partner-marquee.js';
 import { mountQuoteDialog } from './quote.js';
-import { media, integration, partners } from './media-config.js?v=15';
+import { media, integration, partners } from './media-config.js?v=16';
 import { mountPartners } from './partners.js';
 import { initializeForm } from './form.js';
 
