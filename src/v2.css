@@ -788,3 +788,14 @@ main>section[tabindex="-1"]:focus{outline:none}
 .quote-dialog #request-form{padding:0}
 @media(max-width:900px){#request .request-layout{grid-template-columns:minmax(0,1fr);gap:28px}#request .request-intro{max-width:720px}#request .request-contact{margin-top:24px}}
 @media(max-width:767px){#request-form{padding:24px 20px}#request-form .form-grid{grid-template-columns:minmax(0,1fr);gap:0}#request-form .form-field{margin-bottom:16px}#request-form .form-required-note{margin-bottom:18px}}
+
+/* A single confirmed partner occupies one cell; the remaining cells stay empty. */
+#partners:not(.is-marquee) .partners-window{overflow-x:auto}
+#partners:not(.is-marquee) .partners-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));width:100%;gap:24px}
+#partners:not(.is-marquee) .partners-track{width:100%;transform:none;animation:none}
+#partners:not(.is-marquee) .partners-grid li{width:100%;min-width:0}
+#partners:not(.is-marquee) .partner-toggle{display:none}
+#partners .partner-brand{gap:8px}
+#partners .partner-brand img{width:42px;height:auto;flex-shrink:0}
+#partners .partner-brand span{font-family:Arial,sans-serif;font-size:12px;font-weight:800;color:#3a3285;text-transform:uppercase;white-space:nowrap}
+@media(max-width:700px){#partners:not(.is-marquee) .partners-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}#partners .partner-brand{padding:10px;gap:6px}#partners .partner-brand img{width:34px}#partners .partner-brand span{font-size:11px}}
