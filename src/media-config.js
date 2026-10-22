@@ -26,7 +26,7 @@ export const media = {
 
 /** No fictional API or legal document. Configure only approved real destinations. */
 // Add/remove entries freely. Publish only approved original logos with a real name.
-export const partners = [{ name: 'Технопласт', src: '/assets/partner-technoplast.svg', approved: true }, ...Array.from({ length: 7 }, () => ({ name: '', src: null, approved: false }))];
+export const partners = [{ name: 'Технопласт', src: '/assets/partner-technoplast.svg?v=2', approved: true }, ...Array.from({ length: 7 }, () => ({ name: '', src: null, approved: false }))];
 
 export const integration = {
   requestEndpoint: null,
