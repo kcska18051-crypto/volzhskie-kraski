@@ -18,7 +18,7 @@ test('empty and unapproved partners stay invisible',()=>{
 test('only successfully loaded approved originals are shown; all failures hide the section',()=>{
   const {grid,section}=fixture();mountPartners([approved('A'),approved('B')],section);
   assert.equal(section.hidden,true);const [a,b]=grid.children;
-  a.children[0].dispatchEvent(new Event('load'));assert.equal(a.hidden,false);assert.equal(section.hidden,false);assert.equal(a.children[0].alt,'A');
+  a.children[0].dispatchEvent(new Event('load'));assert.equal(a.hidden,false);assert.equal(section.hidden,false);assert.equal(a.children[0].alt,'');assert.equal(a.children[1].textContent,'A');
   b.children[0].dispatchEvent(new Event('error'));assert.equal(grid.children.length,1);assert.equal(section.hidden,false);
   a.children[0].dispatchEvent(new Event('error'));assert.equal(section.hidden,true);assert.equal(grid.children.length,0);
 });
@@ -39,4 +39,14 @@ test('permanent partner section keeps neutral placeholders without inventing com
  const {grid,section}=fixture();globalThis.document.createElement=()=>{const item=new Element();item.setAttribute=()=>{};return item;};
  mountPartners([],section,{placeholders:true});assert.equal(section.hidden,false);assert.equal(grid.children.length,8);assert.ok(grid.children.every(item=>item.className==='partner-placeholder'&&item.children.length===0));
  mountPartners([approved()],section,{placeholders:true});grid.children[0].children[0].dispatchEvent(new Event('error'));assert.equal(section.hidden,false);assert.equal(grid.children.length,8);
+});
+
+test('one approved partner keeps its name and seven empty cells',()=>{
+ const {grid,section}=fixture();globalThis.document.createElement=()=>{const item=new Element();item.setAttribute=()=>{};return item;};
+ mountPartners([approved('Технопласт'),...Array(7).fill({approved:false})],section,{placeholders:true});
+ assert.equal(grid.children.length,8);
+ grid.children[0].children[0].dispatchEvent(new Event('load'));
+ assert.equal(grid.children[0].children[1].textContent,'Технопласт');
+ assert.equal(grid.children.filter(item=>item.className==='partner-placeholder').length,7);
+ assert.ok(grid.children.slice(1).every(item=>item.children.length===0));
 });
