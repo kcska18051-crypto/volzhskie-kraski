@@ -4,10 +4,10 @@ import { initializeSurfaceBanner } from './surfaces.js?v=14';
 import { initializeTolling } from './tolling.js?v=15';
 import { initializeGeography } from './geography.js?v=18';
 import { initializeMaterials } from './materials.js';
-import { initializePartnerMarquee } from './partner-marquee.js';
+import { initializePartnerMarquee } from './partner-marquee.js?v=2';
 import { mountQuoteDialog } from './quote.js';
 import { media, integration, partners } from './media-config.js?v=16';
-import { mountPartners } from './partners.js';
+import { mountPartners } from './partners.js?v=2';
 import { initializeForm } from './form.js';
 
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
