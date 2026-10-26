@@ -4,10 +4,8 @@ import { initializeSurfaceBanner } from './surfaces.js?v=14';
 import { initializeTolling } from './tolling.js?v=15';
 import { initializeGeography } from './geography.js?v=18';
 import { initializeMaterials } from './materials.js';
-import { initializePartnerMarquee } from './partner-marquee.js?v=3';
 import { mountQuoteDialog } from './quote.js';
-import { media, integration, partners } from './media-config.js?v=16';
-import { mountPartners } from './partners.js?v=2';
+import { media, integration } from './media-config.js?v=16';
 import { initializeForm } from './form.js';
 
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
@@ -142,8 +140,6 @@ function initializeReveals(){
   }catch{showAll();}
 }
 
-initializePartnerMarquee();
-mountPartners(partners,document.querySelector('#partners'),{placeholders:true});
 initializeCompanyGallery();initializeSurfaceBanner();initializeTolling();initializeGeography();initializeMaterials();mountMedia();initializeNavigation();initializeForm();initializeLegal();initializeReveals();initializeHeroDepth();
 const contextInput=document.querySelector('#request-context');
 const contextMessage=document.querySelector('#inquiry-context');
