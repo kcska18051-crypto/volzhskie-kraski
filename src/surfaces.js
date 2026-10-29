@@ -1,4 +1,4 @@
-import { surfaceFrames } from './surface-config.js?v=14';
+import { surfaceFrames } from './surface-config.js?v=15';
 
 export function selectSurfaceFrames(slots,review=false){const seen=new Set();return slots.filter(f=>{if(!f.id||!f.title?.trim()||!f.src?.trim()||seen.has(f.id))return false;if(!review&&(f.approved!==true||f.enabled!==true))return false;seen.add(f.id);return true;});}
 export function canRunSurfaceMotion({count,inView,hidden,reduced,manualPause,hover,focus}){return count>1&&inView&&!hidden&&!reduced&&!manualPause&&!hover&&!focus;}
@@ -8,7 +8,7 @@ export function initializeSurfaceBanner(){
  const banner=document.querySelector('#surfaces');if(!banner)return;
  const review=new URLSearchParams(location.search).get('surfaces')==='review';
  const frames=selectSurfaceFrames(surfaceFrames,review),stage=banner.querySelector('.surface-stage'),controls=banner.querySelector('.surface-controls'),pause=banner.querySelector('.surface-pause'),dots=banner.querySelector('.surface-dots'),name=banner.querySelector('.surface-name'),note=banner.querySelector('.surface-note');
- const reduced=matchMedia('(prefers-reduced-motion: reduce)'),mobile=matchMedia('(max-width:700px)');
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)'),mobile=matchMedia('(max-width:767px)');
  const failed=new Set(),preloads=new Map();let current=0,busy=false,manualPause=false,inView=false,timer;
  banner.querySelector('.surface-review-note').hidden=!review;
  banner.classList.toggle('has-notes',frames.some(f=>f.note||!f.approved));
@@ -24,7 +24,7 @@ export function initializeSurfaceBanner(){
   if(busy||index===current||!frames[index]||failed.has(index))return;busy=true;
   try{
    const frame=frames[index];await load(frame);if(!manual&&!running())return;
-   const picture=document.createElement('picture');if(frame.mobileSrc){const source=document.createElement('source');source.media='(max-width:700px)';source.srcset=frame.mobileSrc;picture.append(source);}const image=new Image();image.src=frame.src;image.alt=frame.alt||'';image.decoding='async';picture.append(image);
+   const picture=document.createElement('picture');if(frame.mobileSrc){const source=document.createElement('source');source.media='(max-width:767px)';source.srcset=frame.mobileSrc;picture.append(source);}const image=new Image();image.src=frame.src;image.alt=frame.alt||'';image.decoding='async';picture.append(image);
    const previous=stage.querySelector('.surface-slide');const next=document.createElement('figure');next.className='surface-slide';next.setAttribute('aria-hidden','true');next.append(picture);stage.append(next);
    if(reduced.matches){next.classList.add('is-current');previous?.remove();}
    else{next.getBoundingClientRect();next.classList.add('is-current');await new Promise(resolve=>setTimeout(resolve,750));previous?.remove();}

@@ -10,12 +10,13 @@ export const media = {
   'material-alkyd': { desktop: '/assets/material-alkyd-smooth.webp', mobile: '/assets/material-alkyd-smooth-mobile.webp', alt: 'Макроиллюстрация: красное покрытие на металлическом образце', demonstration: true },
   'material-acrylic': { desktop: '/assets/material-acrylic-smooth.webp', mobile: '/assets/material-acrylic-smooth-mobile.webp', alt: 'Макроиллюстрация: тёмно-синее покрытие на металлическом образце', demonstration: true },
   'custom-etalon': { desktop: '/assets/material-alkyd.webp', mobile: '/assets/material-alkyd-mobile.webp', alt: 'Иллюстрация цветового эталона на металле', demonstration: true },
-  'application-gates': { desktop: '/assets/application-gates-v4.webp', mobile: '/assets/application-gates-v4-mobile.webp', alt: 'Иллюстрация применения покрытия: металлические ворота', demonstration: true },
+  'application-gates': { desktop: '/assets/application-gates-v7.webp', mobile: '/assets/application-gates-v7-mobile.webp', alt: 'Иллюстрация применения покрытия: металлические ворота', demonstration: true },
   'application-racks': { desktop: '/assets/application-racks-v4.webp', mobile: '/assets/application-racks-v4-mobile.webp', alt: 'Иллюстрация применения покрытия: складские стеллажи', demonstration: true },
   'application-forklift': { desktop: '/assets/application-forklift-v4.webp', mobile: '/assets/application-forklift-v4-mobile.webp', alt: 'Иллюстрация применения покрытия: погрузчик', demonstration: true },
   'application-machinery': { desktop: '/assets/application-machinery-v4.webp', mobile: '/assets/application-machinery-v4-mobile.webp', alt: 'Иллюстрация применения покрытия: промышленный станок', demonstration: true },
   'application-transport': { desktop: '/assets/application-transport-v4.webp', mobile: '/assets/application-transport-v4-mobile.webp', alt: 'Иллюстрация применения покрытия: коммерческий транспорт', demonstration: true },
   'application-railway': { desktop: '/assets/application-railway-v4.webp', mobile: '/assets/application-railway-v4-mobile.webp', alt: 'Иллюстрация применения покрытия: железнодорожный вагон в контексте ремонта', demonstration: true },
+  'application-autorepair': { desktop: '/assets/application-autorepair-v1.webp', mobile: '/assets/application-autorepair-v1-mobile.webp', alt: 'Иллюстрация применения покрытия: синий автомобиль с красным передним бампером', demonstration: true },
   'tolling-production': { desktop: null, mobile: null, alt: 'Технологическая операция с сырьём заказчика', video: { desktop: null, mobile: null } },
   laboratory: { desktop: null, mobile: null, alt: 'Научно-исследовательская лаборатория предприятия' },
   'quality-control': { desktop: null, mobile: null, alt: 'Контроль качественных показателей партии в лаборатории ОТК' },
@@ -38,7 +39,7 @@ export const integration = {
 };
 
 // All five approved illustrations are examples of requests, not technical applicability claims.
-export { surfaceFrames } from './surface-config.js?v=14';
+export { surfaceFrames } from './surface-config.js?v=15';
 
 /** Real company media only. Empty slots are shown solely in ?company=review. */
 export const companyGallery=[

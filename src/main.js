@@ -1,11 +1,11 @@
 import { initializeSiteNavigation } from './navigation.js';
 import { initializeCompanyGallery } from './company.js?v=14';
-import { initializeSurfaceBanner } from './surfaces.js?v=14';
+import { initializeSurfaceBanner } from './surfaces.js?v=15';
 import { initializeTolling } from './tolling.js?v=15';
 import { initializeGeography } from './geography.js?v=18';
 import { initializeMaterials } from './materials.js';
 import { mountQuoteDialog } from './quote.js';
-import { media, integration } from './media-config.js?v=16';
+import { media, integration } from './media-config.js?v=17';
 import { initializeForm } from './form.js';
 
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');

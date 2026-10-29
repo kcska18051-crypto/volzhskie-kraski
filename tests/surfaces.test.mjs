@@ -7,13 +7,13 @@ test('surface publication requires approval and enablement; review is explicit',
  assert.equal(selectSurfaceFrames([frame('steel',{approved:'true'})]).length,0);
 });
 
-test('five approved discussion examples keep cycling through multiple complete rounds',()=>{
+test('two approved banner scenes keep cycling through multiple complete rounds',()=>{
  const frames=selectSurfaceFrames(surfaceFrames);
- assert.equal(frames.length,5);
+ assert.equal(frames.length,2);
  assert.ok(frames.every(f=>f.purpose==='discussion-example'));
  let current=0;const visited=[];
  for(let tick=0;tick<12;tick++){current=nextSurfaceIndex(current,frames.length,new Set());visited.push(current);}
- assert.deepEqual(visited,[1,2,3,4,0,1,2,3,4,0,1,2]);
+ assert.deepEqual(visited,[1,0,1,0,1,0,1,0,1,0,1,0]);
  assert.equal(nextSurfaceIndex(3,5,new Set([4,0])),1);
  assert.equal(nextSurfaceIndex(2,5,new Set([0,1,3,4])),2);
  assert.equal(nextSurfaceIndex(0,0,new Set()),0);

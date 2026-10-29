@@ -795,3 +795,44 @@ main>section[tabindex="-1"]:focus{outline:none}
 #partners .partner-brand img{width:40px;height:auto;flex-shrink:0}
 #partners .partner-brand span{font-family:Arial,sans-serif;font-size:12px;font-weight:800;color:#3a3285;text-transform:uppercase;white-space:nowrap}
 @media(max-width:700px){#partners .partners-grid li{width:168px;height:56px;padding:8px}#partners .partner-brand{gap:6px}#partners .partner-brand img{width:34px}#partners .partner-brand span{font-size:12px}}
+
+/* Seventh application shares the final row with the individual inquiry banner. */
+.applications-followup{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:26px;margin-top:38px;align-items:stretch}
+.applications-followup>*{min-width:0}
+#applications .applications-followup #surfaces{margin-top:0}
+@media(min-width:1051px){#applications .applications-followup #surfaces .surface-copy{width:62%;padding:28px;min-height:100%;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}#applications .applications-followup #surfaces .surface-copy h3{font-size:28px}#applications .applications-followup #surfaces .surface-copy>p:not(.surface-eyebrow):not(.surface-review-note){font-size:15px;margin:16px 0 22px}#applications .applications-followup #surfaces .surface-showcase{width:48%}}
+@media(max-width:1050px){.applications-followup{grid-template-columns:1fr}.applications-followup .autorepair-card{max-width:calc((100% - 26px)/2)}}
+@media(max-width:700px){.applications-followup{gap:28px;margin-top:28px}.applications-followup .autorepair-card{max-width:none}}
+
+
+/* Complete responsive banner artwork: live text over one seamless scene. */
+#applications .applications-followup #surfaces .surface-showcase{position:absolute;inset:0;width:100%;height:100%;padding:0;display:block;background:transparent}
+#applications .applications-followup #surfaces .surface-stage{width:100%;height:100%;aspect-ratio:auto;background:var(--navy-deep)}
+#applications .applications-followup #surfaces .surface-stage:after{display:none;background:none}
+#applications .applications-followup #surfaces .surface-slide picture{display:block;width:100%;height:100%}
+#applications .applications-followup #surfaces .surface-slide img{display:block;width:100%;height:100%;max-width:none;max-height:none;object-fit:cover;object-position:center;mask-image:none;-webkit-mask-image:none;padding:0}
+#applications .applications-followup #surfaces .surface-copy{position:relative;z-index:2;width:54%;padding:28px;min-height:100%;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+@media(min-width:768px) and (max-width:1050px){#applications .applications-followup #surfaces{min-height:390px}}
+@media(max-width:767px){
+ #applications .applications-followup #surfaces{min-height:700px}
+ #applications .applications-followup #surfaces .surface-copy{width:100%;min-height:0;padding:28px 24px;justify-content:flex-start}
+ #applications .applications-followup #surfaces .surface-copy h3{font-size:27px;max-width:450px}
+ #applications .applications-followup #surfaces .surface-copy>p:not(.surface-eyebrow):not(.surface-review-note){font-size:16px;line-height:1.55;margin:16px 0 20px}
+ #applications .applications-followup #surfaces .surface-copy .button{width:100%;min-height:52px}
+ #applications .applications-followup #surfaces .surface-slide img{object-position:center bottom}
+}
+@media(max-width:359px){#applications .applications-followup #surfaces{min-height:780px}}
+@media(max-width:767px){#applications .applications-followup #surfaces .surface-slide img{object-fit:fill}}
+
+/* Desktop banner aligns exactly with the adjacent 3:2 photograph. */
+@media(min-width:1051px){
+ #applications .applications-followup #surfaces{align-self:start;height:auto;min-height:0;aspect-ratio:3/1}
+}@media(min-width:1051px){
+ #applications .applications-followup #surfaces .surface-copy{width:54%;height:100%;min-height:0;padding:20px 26px}
+ #applications .applications-followup #surfaces .surface-copy .surface-eyebrow{font-size:10px;margin:0 0 10px}
+ #applications .applications-followup #surfaces .surface-copy h3{font-size:25px;line-height:1.15}
+ #applications .applications-followup #surfaces .surface-copy>p:not(.surface-eyebrow):not(.surface-review-note){font-size:14px;line-height:1.5;margin:12px 0 16px}
+ #applications .applications-followup #surfaces .surface-copy .button{min-height:44px;font-size:13px;padding:12px 16px;gap:18px}
+ #applications .applications-followup #surfaces .surface-controls{right:12px;bottom:12px}
+ #applications .applications-followup #surfaces .surface-pause{width:36px;height:36px;font-size:16px}
+}
