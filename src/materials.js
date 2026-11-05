@@ -1,16 +1,18 @@
 /** Close material details before opening the existing inquiry dialog. */
 export function initializeMaterials(){
  const dialog=document.querySelector('#material-dialog');if(!dialog?.showModal)return;
+ const updateScrollState=()=>dialog.classList.toggle('is-scrolled',dialog.scrollTop>8);
+ dialog.addEventListener('scroll',updateScrollState,{passive:true});
  const title=dialog.querySelector('h2'),cta=dialog.querySelector('.material-inquiry');let opener,handingOff=false;
  document.querySelectorAll('[data-material]').forEach(button=>{
   button.disabled=false;
   button.addEventListener('click',()=>{
    if(dialog.open||document.querySelector('#quote-dialog').open)return;
    opener=button;handingOff=false;const key=button.dataset.material;
-   title.textContent=key==='acrylic'?'Акриловые эмали':'Алкидные эмали';
+   title.textContent={acrylic:'Акриловые эмали',alkyd:'Алкидные эмали',primer:'Грунтовки',metallic:'Базовые эмали (металлики)'}[key]||'Материал';
    dialog.querySelectorAll('[data-material-panel]').forEach(panel=>panel.hidden=panel.dataset.materialPanel!==key);
    cta.dataset.context=title.textContent;cta.dataset.returnFocus=button.id;
-   dialog.showModal();dialog.scrollTop=0;document.body.classList.add('material-open');dialog.querySelector('.material-close').focus({preventScroll:true});
+   dialog.showModal();dialog.scrollTop=0;updateScrollState();document.body.classList.add('material-open');dialog.querySelector('.material-close').focus({preventScroll:true});
   });
  });
  cta.addEventListener('click',()=>{handingOff=true;dialog.close();});
