@@ -117,7 +117,7 @@ export function initializeForm() {
       const response = await fetch(integration.requestEndpoint, { method:'POST', body:data, credentials:'same-origin', signal:controller.signal });
       const result = await response.json();
       if (!response.ok || result.success !== true) throw new Error('Request was not accepted');
-      status.textContent = 'Спасибо! Ваш запрос отправлен. Мы свяжемся с вами для уточнения деталей';
+      status.textContent = 'Спасибо! Ваша заявка принята, в ближайшее время с вами свяжется менеджер';
       status.dataset.state = 'success';
       form.reset();
       const contextMessage=document.querySelector('#inquiry-context');

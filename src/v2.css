@@ -856,3 +856,11 @@ main>section[tabindex="-1"]:focus{outline:none}
 #request-form .form-submit:disabled{background:#d8e0e9;color:#65758a;border-color:#d8e0e9;opacity:1;cursor:not-allowed;box-shadow:none;transform:none}
 #request-form .form-submit[aria-busy="true"]{cursor:wait}
 #request-form .consent + .field-error + .consent{margin-top:14px}
+
+/* Match the material dialog's quiet close button while scrolling the inquiry. */
+@media(max-width:700px){
+ .quote-dialog .quote-close{transition:background-color 180ms ease,color 180ms ease}
+ .quote-dialog.is-scrolled .quote-close{background:#e3ecf7e6;color:var(--navy)}
+ .quote-dialog.is-scrolled .quote-close:hover,.quote-dialog.is-scrolled .quote-close:active{background:#d3e1f2}
+}
+@media(prefers-reduced-motion:reduce){.quote-dialog .quote-close{transition:none}}

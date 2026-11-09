@@ -8,11 +8,13 @@ export function createQuoteController({form,host,dialog,prepare=()=>{}}){
 }
 export function mountQuoteDialog(prepare){
   const dialog=document.querySelector('#quote-dialog');if(!dialog?.showModal)return;
+  const updateScrollState=()=>dialog.classList.toggle('is-scrolled',dialog.scrollTop>8);
+  dialog.addEventListener('scroll',updateScrollState,{passive:true});
   const form=document.querySelector('#request-form');
   const controller=createQuoteController({form,host:document.querySelector('#quote-form-host'),dialog,prepare});
   document.querySelectorAll('a[href="#request"]').forEach(link=>link.addEventListener('click',event=>{
     document.querySelector('#quote-title').textContent=link.dataset.context?.includes('TDS')?'Запросить техническое описание':link.dataset.quote==='kp'?'Запросить КП':'Обсудить задачу';
-    if(controller.open(link,link.dataset.returnFocus?document.getElementById(link.dataset.returnFocus)||link:link)){event.preventDefault();document.body.classList.add('quote-open');}
+    if(controller.open(link,link.dataset.returnFocus?document.getElementById(link.dataset.returnFocus)||link:link)){event.preventDefault();dialog.scrollTop=0;updateScrollState();document.body.classList.add('quote-open');}
   }));
   form.querySelectorAll('input[name=service]').forEach(input=>input.addEventListener('change',()=>{if(dialog.open)document.querySelector('#quote-title').textContent='Запросить КП';}));
   dialog.querySelector('.quote-close').addEventListener('click',()=>dialog.close());
