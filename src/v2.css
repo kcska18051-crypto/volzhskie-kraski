@@ -852,3 +852,7 @@ main>section[tabindex="-1"]:focus{outline:none}
 #factory .company-photo-grid figcaption{font-size:14px;line-height:1.45;color:var(--muted);margin-top:10px}
 @media(max-width:900px){#factory .company-photo-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 16px}}
 @media(max-width:700px){#factory .company-gallery-compact{margin-top:24px}#factory .company-photo-grid{gap:18px 12px}#factory .company-photo-grid picture{border-radius:9px}#factory .company-photo-grid figcaption{font-size:13px;margin-top:8px}}
+/* Submission becomes available only after both required consents. */
+#request-form .form-submit:disabled{background:#d8e0e9;color:#65758a;border-color:#d8e0e9;opacity:1;cursor:not-allowed;box-shadow:none;transform:none}
+#request-form .form-submit[aria-busy="true"]{cursor:wait}
+#request-form .consent + .field-error + .consent{margin-top:14px}

@@ -14,8 +14,8 @@
   <link rel="preload" href="/assets/hero-poster.webp" as="image" media="(min-width: 701px)">
   <link rel="preload" href="/assets/hero-mobile.webp" as="image" media="(max-width: 700px)">
   <link rel="stylesheet" href="/src/styles.css">
-  <link rel="stylesheet" href="/src/v2.css?v=23">
-  <script type="module" src="/src/main.js?v=33"></script>
+  <link rel="stylesheet" href="/src/v2.css?v=24">
+  <script type="module" src="/src/main.js?v=34"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Перейти к содержанию</a>
@@ -106,7 +106,8 @@
         <label class="form-field">Компания<input name="company" autocomplete="organization" maxlength="150"></label>
         <label class="form-field">Описание задачи<textarea name="task" rows="3" maxlength="3000" placeholder="Материал, объём, требования к покрытию"></textarea></label>
         <div class="file-field"><label for="attachment" class="file-label"><span aria-hidden="true">＋</span><span id="file-label">Прикрепить ТЗ или документ</span></label><input type="file" id="attachment" name="attachment" accept=".pdf,.doc,.docx,.xls,.xlsx,.txt,.jpg,.jpeg,.png" aria-describedby="file-hint file-error"><button type="button" class="file-remove" hidden aria-label="Удалить прикреплённый файл">×</button></div><p class="file-hint" id="file-hint">PDF, DOC(X), XLS(X), TXT, JPG, PNG · до 10 МБ</p><span class="field-error" id="file-error"></span>
-        <label class="consent"><input type="checkbox" name="consent" required aria-describedby="consent-error"><span>Согласен на обработку персональных данных в соответствии с <button type="button" class="inline-button" data-legal="privacy">политикой конфиденциальности</button> и <button type="button" class="inline-button" data-legal="consent">согласием</button></span></label><span class="field-error" id="consent-error"></span>
+        <label class="consent"><input type="checkbox" name="consent" required aria-describedby="consent-error"><span>Согласен на обработку персональных данных в соответствии с <button type="button" class="inline-button" data-legal="privacy">политикой конфиденциальности</button></span></label><span class="field-error" id="consent-error"></span>
+        <label class="consent"><input type="checkbox" name="agreement" required aria-describedby="agreement-error"><span>Принимаю условия <button type="button" class="inline-button" data-legal="agreement">пользовательского соглашения</button></span></label><span class="field-error" id="agreement-error"></span>
         <button class="button button-red form-submit" type="submit" disabled>Отправить запрос <span aria-hidden="true">↗</span></button><details class="form-availability"><summary>Онлайн-отправка пока недоступна</summary><p>Обработчик ещё не подключён. Запрос можно направить по телефону или e-mail, указанным рядом с формой.</p></details><div class="form-status" id="form-status" role="status" aria-live="polite" tabindex="-1"></div>
       </form></div></section>
 <section class="contacts" id="contacts" aria-labelledby="contacts-title"><div class="container contacts-layout"><div><h2 id="contacts-title">Волжские краски, Ярославль</h2></div><div><a class="contacts-phone" href="tel:+74852587654">+7 (4852) 58-76-54</a><a class="contacts-email" href="mailto:sales@volgakraski.ru">sales@volgakraski.ru</a></div></div></section>

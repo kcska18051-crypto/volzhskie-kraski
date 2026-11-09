@@ -6,7 +6,7 @@ import { initializeGeography } from './geography.js?v=18';
 import { initializeMaterials } from './materials.js?v=3';
 import { mountQuoteDialog } from './quote.js';
 import { media, integration } from './media-config.js?v=22';
-import { initializeForm } from './form.js';
+import { initializeForm } from './form.js?v=2';
 
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 const mobileMedia = matchMedia('(max-width: 700px)');
