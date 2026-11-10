@@ -5,7 +5,7 @@ import { initializeTolling } from './tolling.js?v=16';
 import { initializeGeography } from './geography.js?v=18';
 import { initializeMaterials } from './materials.js?v=4';
 import { mountQuoteDialog } from './quote.js?v=4';
-import { media, integration } from './media-config.js?v=22';
+import { media, integration } from './media-config.js?v=23';
 import { initializeForm } from './form.js?v=3';
 
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');

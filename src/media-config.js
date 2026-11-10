@@ -18,7 +18,7 @@ export const media = {
   'application-machinery': { desktop: '/assets/application-machinery-v4.webp', mobile: '/assets/application-machinery-v4-mobile.webp', alt: 'Иллюстрация применения покрытия: промышленный станок', demonstration: true },
   'application-transport': { desktop: '/assets/application-transport-v4.webp', mobile: '/assets/application-transport-v4-mobile.webp', alt: 'Иллюстрация применения покрытия: коммерческий транспорт', demonstration: true },
   'application-railway': { desktop: '/assets/application-railway-v4.webp', mobile: '/assets/application-railway-v4-mobile.webp', alt: 'Иллюстрация применения покрытия: железнодорожный вагон в контексте ремонта', demonstration: true },
-  'application-autorepair': { desktop: '/assets/application-autorepair-v1.webp', mobile: '/assets/application-autorepair-v1-mobile.webp', alt: 'Иллюстрация применения покрытия: синий автомобиль с красным передним бампером', demonstration: true },
+  'application-autorepair': { desktop: '/assets/application-autorepair-v2.webp', mobile: '/assets/application-autorepair-v2-mobile.webp', alt: 'Иллюстрация применения покрытия: синий автомобиль с красными передним бампером и задней дверью', demonstration: true },
   'tolling-production': { desktop: null, mobile: null, alt: 'Технологическая операция с сырьём заказчика', video: { desktop: null, mobile: null } },
   laboratory: { desktop: null, mobile: null, alt: 'Научно-исследовательская лаборатория предприятия' },
   'quality-control': { desktop: null, mobile: null, alt: 'Контроль качественных показателей партии в лаборатории ОТК' },
