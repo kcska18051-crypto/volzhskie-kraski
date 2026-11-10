@@ -11,3 +11,19 @@ test('material handoff returns focus to the visible details button',()=>{
  let hiddenLinkFocus=0,visibleButtonFocus=0;const home={append(){}},host={append(){}};const form={parentElement:home,querySelector:()=>({focus(){}})};const dialog={open:false,showModal(){this.open=true;}};
  const control=createQuoteController({form,host,dialog});control.open({focus(){hiddenLinkFocus++;}},{focus(){visibleButtonFocus++;}});control.restore();assert.equal(hiddenLinkFocus,0);assert.equal(visibleButtonFocus,1);
 });
+
+
+test('the source layout is reserved before moving the form and released on return',()=>{
+ const events=[];const home={append(){events.push('home');}},host={append(){events.push('host');}};
+ const form={parentElement:home,querySelector:()=>({focus(){}})},dialog={open:false,showModal(){this.open=true;}};
+ const control=createQuoteController({form,host,dialog,reserve(){events.push('reserve');},release(){events.push('release');}});
+ control.open({focus(){}});assert.deepEqual(events,['reserve','host']);
+ control.restore();assert.deepEqual(events,['reserve','host','home','release']);
+});
+
+test('a failed dialog opening releases the reserved source layout',()=>{
+ let released=0;const home={append(){}},host={append(){}};
+ const form={parentElement:home},dialog={open:false,showModal(){throw new Error('unavailable');}};
+ const control=createQuoteController({form,host,dialog,release(){released++;}});
+ assert.equal(control.open({}),false);assert.equal(released,1);
+});

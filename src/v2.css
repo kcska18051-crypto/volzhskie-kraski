@@ -877,3 +877,9 @@ main>section[tabindex="-1"]:focus{outline:none}
  .quote-dialog.is-scrolled .quote-close,.material-dialog.is-scrolled .material-close{background:#dcecff;color:#376a9f;box-shadow:none}
  .quote-dialog.is-scrolled .quote-close:hover,.quote-dialog.is-scrolled .quote-close:active,.material-dialog.is-scrolled .material-close:hover,.material-dialog.is-scrolled .material-close:active{background:#cde2fa;color:#203b63}
 }
+
+/* Stable page width and desktop dialog geometry across every inquiry entry. */
+html{scrollbar-gutter:stable}
+.quote-dialog,.material-dialog{scrollbar-gutter:stable}
+.request-form-placeholder{min-width:0;pointer-events:none}
+@media(min-width:901px){.quote-dialog{height:min(840px,calc(100dvh - 64px));max-height:calc(100dvh - 64px);overflow-y:auto;overflow-anchor:none}}
