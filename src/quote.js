@@ -8,7 +8,7 @@ export function createQuoteController({form,host,dialog,prepare=()=>{}}){
 }
 export function mountQuoteDialog(prepare){
   const dialog=document.querySelector('#quote-dialog');if(!dialog?.showModal)return;
-  const updateScrollState=()=>dialog.classList.toggle('is-scrolled',dialog.scrollTop>8);
+  const updateScrollState=()=>dialog.classList.toggle('is-scrolled',dialog.scrollTop>0);
   dialog.addEventListener('scroll',updateScrollState,{passive:true});
   const form=document.querySelector('#request-form');
   const controller=createQuoteController({form,host:document.querySelector('#quote-form-host'),dialog,prepare});

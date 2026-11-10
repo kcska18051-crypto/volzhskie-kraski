@@ -871,3 +871,9 @@ main>section[tabindex="-1"]:focus{outline:none}
 .materials-components h4{font-size:20px;font-weight:500;line-height:1.3;margin:0 0 10px;color:var(--navy)}
 .section .materials-components p{font-size:16px;line-height:1.55;color:var(--muted);margin:0}
 @media(max-width:700px){.materials-components{grid-template-columns:1fr;gap:22px;padding:20px}.materials-components h3{font-size:23px}}
+
+/* Keep mobile and tablet close controls light blue whenever the dialog is scrolled. */
+@media(max-width:900px){
+ .quote-dialog.is-scrolled .quote-close,.material-dialog.is-scrolled .material-close{background:#dcecff;color:#376a9f;box-shadow:none}
+ .quote-dialog.is-scrolled .quote-close:hover,.quote-dialog.is-scrolled .quote-close:active,.material-dialog.is-scrolled .material-close:hover,.material-dialog.is-scrolled .material-close:active{background:#cde2fa;color:#203b63}
+}

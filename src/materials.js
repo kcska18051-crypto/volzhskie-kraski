@@ -1,7 +1,7 @@
 /** Close material details before opening the existing inquiry dialog. */
 export function initializeMaterials(){
  const dialog=document.querySelector('#material-dialog');if(!dialog?.showModal)return;
- const updateScrollState=()=>dialog.classList.toggle('is-scrolled',dialog.scrollTop>8);
+ const updateScrollState=()=>dialog.classList.toggle('is-scrolled',dialog.scrollTop>0);
  dialog.addEventListener('scroll',updateScrollState,{passive:true});
  const title=dialog.querySelector('h2'),cta=dialog.querySelector('.material-inquiry');let opener,handingOff=false;
  document.querySelectorAll('[data-material]').forEach(button=>{
