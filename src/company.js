@@ -1,3 +1,4 @@
+import {initializeCompanyCarousel} from './company-carousel.js';
 import {companyGallery} from './media-config.js?v=22';
 export function isCompanyMediaReady(frame){return frame.approved===true&&frame.enabled===true&&!!frame.src?.trim()&&(frame.type==='image'||(frame.type==='video'&&!!frame.poster?.trim()));}
 export function selectCompanyMedia(slots,review=false){const seen=new Set();return slots.filter(frame=>{if(!frame.id||!frame.title?.trim()||!['image','video'].includes(frame.type)||seen.has(frame.id)||(!review&&!isCompanyMediaReady(frame)))return false;seen.add(frame.id);return true;});}
@@ -12,10 +13,11 @@ export function initializeCompanyGallery(){
    if(frame.type!=='image'||!isCompanyMediaReady(frame))continue;
    const figure=document.createElement('figure'),picture=document.createElement('picture'),source=document.createElement('source'),img=document.createElement('img'),caption=document.createElement('figcaption');
    if(frame.mobileSrc){source.media='(max-width:700px)';source.srcset=frame.mobileSrc;picture.append(source);}
-   img.src=frame.src;img.alt=frame.alt||frame.title;img.loading='lazy';img.decoding='async';img.style.objectPosition=frame.position||'center';img.width=960;img.height=640;
+   img.src=frame.src;if(frame.fullSrc)img.dataset.fullSrc=frame.fullSrc;img.alt=frame.alt||frame.title;img.loading='lazy';img.decoding='async';img.style.objectPosition=frame.position||'center';img.width=960;img.height=640;
    img.addEventListener('error',()=>{figure.remove();if(!grid.children.length)gallery.hidden=true;},{once:true});
    caption.textContent=frame.title;picture.append(img);figure.append(picture,caption);grid.append(figure);
   }
+  initializeCompanyCarousel(gallery);
   return;
  }
  const stage=gallery.querySelector('.company-main'),caption=gallery.querySelector('.company-caption'),strip=gallery.querySelector('.company-thumbnails'),mobile=matchMedia('(max-width:700px)');let selected=-1,request=0;

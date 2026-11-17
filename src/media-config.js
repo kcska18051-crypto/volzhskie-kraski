@@ -45,8 +45,126 @@ export { surfaceFrames } from './surface-config.js?v=15';
 
 /** Real company media only. Empty slots are shown solely in ?company=review. */
 export const companyGallery=[
- {id:'team',title:'Люди и лаборатория',type:'image',src:'/assets/company-team-v1.webp',mobileSrc:'/assets/company-team-v1-mobile.webp',alt:'Специалисты Волжских красок работают с лабораторным оборудованием',position:'center 45%',approved:true,enabled:true},
- {id:'color-control',title:'Контроль цвета',type:'image',src:'/assets/company-color-control-v1.webp',mobileSrc:'/assets/company-color-control-v1-mobile.webp',alt:'Измерение цвета образца прибором в лаборатории',position:'center',approved:true,enabled:true},
- {id:'equipment',title:'Производственное оборудование',type:'image',src:'/assets/company-equipment-v1.webp',mobileSrc:'/assets/company-equipment-v1-mobile.webp',alt:'Производственное оборудование и ёмкости на предприятии Волжские краски',position:'center',approved:true,enabled:true},
- {id:'filling',title:'Линия фасовки',type:'image',src:'/assets/company-filling-v1.webp',mobileSrc:'/assets/company-filling-v1-mobile.webp',alt:'Металлическая тара на линии фасовки лакокрасочных материалов',position:'center',approved:true,enabled:true},
+  {
+    "id": "process-1",
+    "title": "Получение заказа",
+    "type": "image",
+    "src": "/assets/company-process-01.webp",
+    "mobileSrc": "/assets/company-process-01-mobile.webp",
+    "alt": "Получение заказа",
+    "position": "center",
+    "approved": true,
+    "enabled": true
+  },
+  {
+    "id": "process-2",
+    "title": "Закупка сырья",
+    "type": "image",
+    "src": "/assets/company-process-02.webp",
+    "mobileSrc": "/assets/company-process-02-mobile.webp",
+    "alt": "Закупка сырья",
+    "position": "center",
+    "approved": true,
+    "enabled": true
+  },
+  {
+    "id": "process-3",
+    "title": "Разработка материала",
+    "type": "image",
+    "src": "/assets/company-process-03.webp",
+    "mobileSrc": "/assets/company-process-03-mobile.webp",
+    "alt": "Разработка материала",
+    "position": "center",
+    "approved": true,
+    "enabled": true
+  },
+  {
+    "id": "process-4",
+    "title": "Приготовление пигментных паст",
+    "type": "image",
+    "src": "/assets/company-process-04.webp",
+    "mobileSrc": "/assets/company-process-04-mobile.webp",
+    "alt": "Приготовление пигментных паст",
+    "position": "center",
+    "approved": true,
+    "enabled": true
+  },
+  {
+    "id": "process-5",
+    "title": "Составление эмалей",
+    "type": "image",
+    "src": "/assets/company-process-05.webp",
+    "mobileSrc": "/assets/company-process-05-mobile.webp",
+    "alt": "Составление эмалей",
+    "position": "center",
+    "approved": true,
+    "enabled": true
+  },
+  {
+    "id": "process-6",
+    "title": "Колеровка и нанесение эмалей",
+    "type": "image",
+    "src": "/assets/company-process-06.webp",
+    "mobileSrc": "/assets/company-process-06-mobile.webp",
+    "alt": "Колеровка и нанесение эмалей",
+    "position": "center",
+    "approved": true,
+    "enabled": true
+  },
+  {
+    "id": "process-7",
+    "title": "Контроль цветовых характеристик",
+    "type": "image",
+    "src": "/assets/company-process-07.webp",
+    "mobileSrc": "/assets/company-process-07-mobile.webp",
+    "alt": "Контроль цветовых характеристик",
+    "position": "center",
+    "approved": true,
+    "enabled": true
+  },
+  {
+    "id": "process-8",
+    "title": "Прием материала",
+    "type": "image",
+    "src": "/assets/company-process-08.webp",
+    "mobileSrc": "/assets/company-process-08-mobile.webp",
+    "alt": "Прием материала",
+    "position": "center",
+    "approved": true,
+    "enabled": true
+  },
+  {
+    "id": "process-9",
+    "title": "Фасовка и упаковка",
+    "type": "image",
+    "src": "/assets/company-process-09.webp",
+    "mobileSrc": "/assets/company-process-09-mobile.webp",
+    "alt": "Фасовка и упаковка",
+    "position": "center",
+    "approved": true,
+    "enabled": true
+  },
+  {
+    "id": "process-10",
+    "title": "Отгрузка",
+    "type": "image",
+    "src": "/assets/company-process-10.webp",
+    "mobileSrc": "/assets/company-process-10-mobile.webp",
+    "alt": "Отгрузка",
+    "position": "center",
+    "approved": true,
+    "enabled": true
+  },
+  {
+    "id": "process-11",
+    "fullSrc": "/assets/company-process-11-full.webp",
+    "title": "Готовый продукт",
+    "type": "image",
+    "src": "/assets/company-process-11.webp",
+    "mobileSrc": "/assets/company-process-11-mobile.webp",
+    "alt": "Готовый продукт",
+    "position": "center",
+    "approved": true,
+    "enabled": true
+  }
 ];
