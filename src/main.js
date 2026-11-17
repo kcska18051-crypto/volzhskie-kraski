@@ -1,3 +1,4 @@
+import { cookiePolicyHtml } from './cookie-policy.js';
 import { initializeSiteNotice } from './site-notice.js';
 import { personalDataConsentHtml } from './personal-data-consent.js';
 import { privacyPolicyHtml } from './privacy-policy.js';
@@ -104,10 +105,11 @@ function initializeLegal() {
   const open=(kind,button)=>{
     opener=button||document.activeElement;
     const privacy=kind==='privacy';
-    title.textContent=privacy?'Политика в отношении обработки персональных данных':'Согласие на обработку персональных данных';
+    title.textContent=privacy?'Политика в отношении обработки персональных данных':kind==='cookies'?'Политика Куки (cookie)':'Согласие на обработку персональных данных';
     if(privacy)text.innerHTML=privacyPolicyHtml;
     else if(kind==='consent')text.innerHTML=personalDataConsentHtml;
-    dialog.classList.toggle('has-document',privacy||kind==='consent');dialog.showModal();dialog.scrollTop=0;document.body.classList.add('legal-open');title.focus({preventScroll:true});
+    else if(kind==='cookies')text.innerHTML=cookiePolicyHtml;
+    dialog.classList.toggle('has-document',privacy||kind==='consent'||kind==='cookies');dialog.showModal();dialog.scrollTop=0;document.body.classList.add('legal-open');title.focus({preventScroll:true});
   };
   document.querySelectorAll('[data-legal]').forEach(button=>button.addEventListener('click',()=>open(button.dataset.legal,button)));
   text.addEventListener('click',event=>{if(event.target.closest('[data-policy-reference]')){event.preventDefault();dialog.scrollTop=0;title.focus({preventScroll:true});}});
@@ -117,6 +119,7 @@ function initializeLegal() {
   dialog.addEventListener('click',event=>{if(event.target===dialog){const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close();}});
   if(location.hash==='#privacy')open('privacy');
   if(location.hash==='#consent')open('consent');
+  if(location.hash==='#cookies')open('cookies');
 }
 
 function initializeReveals(){
