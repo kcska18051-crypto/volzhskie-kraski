@@ -1,3 +1,6 @@
+import { initializeSiteNotice } from './site-notice.js';
+import { personalDataConsentHtml } from './personal-data-consent.js';
+import { privacyPolicyHtml } from './privacy-policy.js';
 import { initializeSiteNavigation } from './navigation.js';
 import { initializeCompanyGallery } from './company.js?v=15';
 import { initializeSurfaceBanner } from './surfaces.js?v=15';
@@ -97,22 +100,23 @@ function initializeHeroDepth() {
 }
 
 function initializeLegal() {
-  const dialog = document.querySelector('#legal-dialog');
-  const title = document.querySelector('#legal-title');
-  const text = document.querySelector('#legal-text');
-  document.querySelectorAll('[data-legal]').forEach((button) => button.addEventListener('click',() => {
-    const privacy = button.dataset.legal==='privacy';
-    const agreement = button.dataset.legal==='agreement';
-    const url = agreement?integration.agreementUrl:privacy?integration.privacyUrl:integration.consentUrl;
-    if (url) { location.assign(url);return; }
-    title.textContent=agreement?'Пользовательское соглашение':privacy?'Политика конфиденциальности':'Согласие на обработку данных';
-    text.textContent='Утверждённый документ пока не предоставлен. Перед запуском сайта необходимо подключить документ оператора персональных данных. Сейчас данные формы не отправляются и не сохраняются на сайте';
-    if(agreement)text.textContent='Утверждённый текст пользовательского соглашения пока не предоставлен.';
-    dialog.showModal();
-  }));
+  const dialog=document.querySelector('#legal-dialog'),title=document.querySelector('#legal-title'),text=document.querySelector('#legal-text');let opener;
+  const open=(kind,button)=>{
+    opener=button||document.activeElement;
+    const privacy=kind==='privacy';
+    title.textContent=privacy?'Политика в отношении обработки персональных данных':'Согласие на обработку персональных данных';
+    if(privacy)text.innerHTML=privacyPolicyHtml;
+    else if(kind==='consent')text.innerHTML=personalDataConsentHtml;
+    dialog.classList.toggle('has-document',privacy||kind==='consent');dialog.showModal();dialog.scrollTop=0;document.body.classList.add('legal-open');title.focus({preventScroll:true});
+  };
+  document.querySelectorAll('[data-legal]').forEach(button=>button.addEventListener('click',()=>open(button.dataset.legal,button)));
+  text.addEventListener('click',event=>{if(event.target.closest('[data-policy-reference]')){event.preventDefault();dialog.scrollTop=0;title.focus({preventScroll:true});}});
   dialog.querySelector('.dialog-close').addEventListener('click',()=>dialog.close());
   dialog.querySelector('.dialog-dismiss').addEventListener('click',()=>dialog.close());
-  dialog.addEventListener('click',(event)=>{if(event.target===dialog){const rect=dialog.getBoundingClientRect();if(event.clientX<rect.left||event.clientX>rect.right||event.clientY<rect.top||event.clientY>rect.bottom)dialog.close();}});
+  dialog.addEventListener('close',()=>{document.body.classList.remove('legal-open');opener?.focus({preventScroll:true});});
+  dialog.addEventListener('click',event=>{if(event.target===dialog){const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close();}});
+  if(location.hash==='#privacy')open('privacy');
+  if(location.hash==='#consent')open('consent');
 }
 
 function initializeReveals(){
@@ -140,7 +144,7 @@ function initializeReveals(){
   }catch{showAll();}
 }
 
-initializeCompanyGallery();initializeSurfaceBanner();initializeTolling();initializeGeography();initializeMaterials();mountMedia();initializeNavigation();initializeForm();initializeLegal();initializeReveals();initializeHeroDepth();
+initializeCompanyGallery();initializeSurfaceBanner();initializeTolling();initializeGeography();initializeMaterials();mountMedia();initializeNavigation();initializeForm();initializeSiteNotice();initializeLegal();initializeReveals();initializeHeroDepth();
 const contextInput=document.querySelector('#request-context');
 const contextMessage=document.querySelector('#inquiry-context');
 const setContext=(value)=>{contextInput.value=value;contextMessage.hidden=!value;};

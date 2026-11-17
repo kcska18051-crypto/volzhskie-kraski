@@ -17,7 +17,7 @@ export function validateAttachment(file, maxBytes = integration.maxFileBytes) {
 }
 
 export function canSubmitInquiry(values, pending = false) {
-  return !pending && values.consent === true && values.agreement === true;
+  return !pending && values.consent === true;
 }
 
 export function validateInquiry(values) {
@@ -26,7 +26,6 @@ export function validateInquiry(values) {
   const contactError = validateContact(values.contact);
   if (contactError) errors.contact = contactError;
   if (!values.consent) errors.consent = 'Подтвердите согласие на обработку персональных данных';
-  if (!values.agreement) errors.agreement = 'Примите условия пользовательского соглашения';
   const attachmentError = validateAttachment(values.attachment);
   if (attachmentError) errors.attachment = attachmentError;
   return errors;
@@ -39,10 +38,10 @@ export function initializeForm() {
   const fileLabel = document.querySelector('#file-label');
   const removeFile = document.querySelector('.file-remove');
   const submitButton = form.querySelector('[type="submit"]');
-  const errorIds = { name:'name-error', contact:'contact-error', consent:'consent-error', agreement:'agreement-error', attachment:'file-error' };
+  const errorIds = { name:'name-error', contact:'contact-error', consent:'consent-error', attachment:'file-error' };
   let pending = false;
   const updateSubmitState = () => {
-    submitButton.disabled = !canSubmitInquiry({consent:form.elements.consent.checked, agreement:form.elements.agreement.checked}, pending);
+    submitButton.disabled = !canSubmitInquiry({consent:form.elements.consent.checked}, pending);
   };
   form.addEventListener('reset', () => queueMicrotask(updateSubmitState));
   addEventListener('pageshow', updateSubmitState);
@@ -64,8 +63,8 @@ export function initializeForm() {
   fileInput.addEventListener('change', updateFile);
   removeFile.addEventListener('click', () => { fileInput.value = ''; updateFile(); fileInput.focus(); });
 
-  for (const name of ['name', 'contact', 'consent', 'agreement']) {
-    form.elements[name].addEventListener(['consent','agreement'].includes(name) ? 'change' : 'input', () => {
+  for (const name of ['name', 'contact', 'consent']) {
+    form.elements[name].addEventListener(name === 'consent' ? 'change' : 'input', () => {
       if (form.elements[name].getAttribute('aria-invalid')) showError(name);
       if (!pending) status.textContent = '';
       updateSubmitState();
@@ -77,7 +76,7 @@ export function initializeForm() {
     if (pending) return;
     const errors = validateInquiry({
       name:form.elements.name.value, contact:form.elements.contact.value,
-      consent:form.elements.consent.checked, agreement:form.elements.agreement.checked, attachment:fileInput.files[0],
+      consent:form.elements.consent.checked, attachment:fileInput.files[0],
     });
     for (const name of Object.keys(errorIds)) showError(name, errors[name]);
     if (Object.keys(errors).length) {
@@ -111,7 +110,6 @@ export function initializeForm() {
       data.set('name', form.elements.name.value.trim());
       data.set('contact', form.elements.contact.value.trim());
       data.set('consent', 'true');
-      data.set('agreement', 'true');
       if (!fileInput.files.length) data.delete('attachment');
       if (integration.csrfToken) data.set('csrfToken', integration.csrfToken);
       const response = await fetch(integration.requestEndpoint, { method:'POST', body:data, credentials:'same-origin', signal:controller.signal });
