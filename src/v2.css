@@ -974,3 +974,25 @@ body.legal-open .site-notice,body.quote-open .site-notice,body.process-gallery-o
 #legal-dialog .legal-document h3{font-size:19px;line-height:1.4;letter-spacing:-.02em;margin:22px 0 10px;color:var(--navy)}
 #legal-dialog .legal-document h3:first-child{margin-top:0}
 #legal-dialog .legal-document code{font-size:.9em;overflow-wrap:anywhere}
+/* Consistent interactive feedback without changing layout or touch behavior. */
+:where(a[href],button:not(:disabled),summary,input[type=checkbox],input[type=radio]){cursor:pointer}
+:where(.text-link,.inline-button,.contacts-phone,.contacts-email,.request-contact a,.brand,summary,.file-label){transition:color 180ms ease,background-color 180ms ease,opacity 180ms ease,text-decoration-color 180ms ease}
+@media(hover:hover) and (pointer:fine){
+ .materials .material-details-trigger:not(:disabled):hover,.text-link:not(:disabled):hover,.inline-button:not(:disabled):hover{color:var(--red-accessible);text-decoration-color:currentColor}
+ .materials .material-details-trigger:not(:disabled):hover{text-decoration-thickness:2px}
+ #contacts .contacts-phone:hover,#contacts .contacts-email:hover{color:var(--red-accessible)}
+ .request-contact a:hover{color:#ff8b91}
+ .faq-list summary:hover{color:var(--red-accessible);background:#203b6305}
+ .faq-list summary:hover span{color:var(--red-accessible)}
+ #request-form .form-availability summary:hover{color:var(--red-accessible)}
+ #request-form .file-field:hover .file-label{background:#dfe7f1;color:var(--navy)}
+ #request-form .file-remove:hover,#context-remove:hover{color:var(--red-accessible);background:#203b6308;border-radius:6px}
+ #request-form .form-field input:hover,#request-form .form-field textarea:hover{border-color:#7f93ad}
+ #legal-dialog .dialog-close:hover{background:#edf1f6;color:var(--red-accessible)}
+ #header .menu-toggle:hover{background:#203b630a;border-radius:6px}
+ .brand:hover{opacity:.8}
+ .process-photo-open:hover img{filter:brightness(1.06)}
+ #geography .map-label[role=button]:hover{fill:#fff}
+}
+.materials .material-details-trigger:not(:disabled):focus-visible,#contacts a:focus-visible{color:var(--red-accessible)}
+@media(prefers-reduced-motion:reduce){:where(.text-link,.inline-button,.contacts-phone,.contacts-email,.request-contact a,.brand,summary,.file-label){transition:none}}
