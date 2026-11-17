@@ -996,3 +996,10 @@ body.legal-open .site-notice,body.quote-open .site-notice,body.process-gallery-o
 }
 .materials .material-details-trigger:not(:disabled):focus-visible,#contacts a:focus-visible{color:var(--red-accessible)}
 @media(prefers-reduced-motion:reduce){:where(.text-link,.inline-button,.contacts-phone,.contacts-email,.request-contact a,.brand,summary,.file-label){transition:none}}
+/* Application actions: blue feedback without underline or bottom rule. */
+#applications .gallery-choice{border-bottom-color:transparent;text-decoration:none}
+#applications .gallery-action{border:0;text-decoration:none;transition:color 180ms ease}
+#applications .gallery-action span{color:inherit}
+@media(hover:hover) and (pointer:fine){#applications .gallery-choice:hover .gallery-action{color:var(--navy);text-decoration:none}}
+#applications .gallery-choice:focus-visible .gallery-action{color:var(--navy);text-decoration:none}
+@media(prefers-reduced-motion:reduce){#applications .gallery-action{transition:none}}
